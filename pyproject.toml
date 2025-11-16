@@ -1,0 +1,15 @@
+[project]
+name = "phsysics_prac"
+version = "0.1.0"
+description = "michaelmas physics writeup"
+requires-python = ">=3.13"
+
+# Runtime dependencies
+dependencies = [
+"numpy>=1.26",
+"pandas>=2.2",
+"matplotlib>=3.9",
+"scikit-learn",
+"jupyterlab>=4.0",
+"tqdm>=4.65.0",
+]
