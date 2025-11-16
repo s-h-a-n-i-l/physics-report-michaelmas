@@ -1,0 +1,6 @@
+Material,Cross Sectional Area (mm2),Bmin_T,Bmax_T,Loop Area / A m^-1,mu_r_min,mu_r_max,power_loss_W_per_m3,,,,,
+Copper Alloy (40 C),19.6,-0.064,0.067,177.57,0.86,10.77,8879,,,,,
+Copper Alloy (10C),19.6,-0.117,0.120,190.66,1.60,10.77,9533,,,,,
+Mild Steel,7.65,-2.055,2.021,37000,27.82,207.00,1865000,,,,,
+Transformer Iron,2.95,-2.358,2.400,8400,33.26,87.99,420000,,,,,
+,,,,,,,,,,,,
