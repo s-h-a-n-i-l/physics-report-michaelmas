@@ -49,6 +49,7 @@ material_area_error_mm2 = {
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_ROOT = BASE_DIR / "hysteresis data"
+DATA_ROOT = '/home/shani/physics report michaelmas/data/hysteresis data'
 PLOT_ROOT = BASE_DIR / "hysteresis_plots"
 LOOP_DURATION_S = 0.02  # seconds of data (20 ms) per loop
 
@@ -238,7 +239,7 @@ def plot_loop(
         bbox=dict(facecolor="white", alpha=0.8, edgecolor="none"),
     )
 
-    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.parent.mkdir(parents=True)
     fig.tight_layout()
     fig.savefig(output_path, dpi=300)
     plt.close(fig)
@@ -250,12 +251,6 @@ def iter_captures() -> List[Path]:
 
 
 def main() -> None:
-    if not DATA_ROOT.exists():
-        raise FileNotFoundError(f"Missing data directory: {DATA_ROOT}")
-
-    csv_files = iter_captures()
-    if not csv_files:
-        raise FileNotFoundError(f"No CSV files found under {DATA_ROOT}")
 
     summary_rows = []
 

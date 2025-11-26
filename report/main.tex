@@ -13,8 +13,11 @@
 \usepackage{physics}
 \usepackage{bm}
 
+% Fix for siunitx and physics package conflict
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+
 \title{physics practical report}
-\author{Shanil Shah sbs57 \\ Part IB Physics Scientific Report}
+\author{Shanil Shah sbs57 \\ Part IB Physics Report}
 \date{\today}
 
 \begin{document}
@@ -22,7 +25,7 @@
 \maketitle
 
 \begin{abstract}
-\input{sections/abstract.tex}
+	\input{sections/abstract.tex}
 \end{abstract}
 
 \section{Introduction}
