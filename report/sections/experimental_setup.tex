@@ -92,8 +92,8 @@ $\bullet$ Transformer iron$\\$
 $\bullet$ CuNi alloy at 10$^\circ$C and above 40$^\circ$C$\\$
 $\\$
 the coil length and the cross-sectional area of the samples were measured.
-This was done using a vernier caliper to measure the length and width of the cuboid mild steel and transformer iron samples 
-and the diameter of the cylindrical CuNi alloy sample.
+This was done using a vernier caliper to measure the length and width of the cuboid CuNi alloy and transformer iron samples 
+and the diameter of the cylindrical mild steel sample.
 $\\$
 Then the experiment was run:
 The signal generator was turned on to feed an AC current into the primary coil
@@ -112,6 +112,8 @@ changes during the measurement but the actual temperature was not measured durin
 $\\$
 $\\$
 Voltages across the series 2 $\Omega$ resistor (Channel A) and integrator output (Channel B) were recorded using a PicoScope 
-at a sampling rate of 1.95 MHz. For each sample 20 cycles at 50 Hz ($\sim$0.32 s) were recorded. Was then exported to be analysed using a Python script that splits up 
+at a sampling rate of 1.95 MHz (in spite of the AC current being used the PicoScope was set to DC. This was to avoid the possibility of some AC current being 
+filtered out by the PicoScope as it is seen as DC offset as a result of the low frequency being used). For each sample 20 cycles at 50 Hz ($\sim$0.32 s) were 
+  recorded. Was then exported to be analysed using a Python script that splits up 
 the individual loop and plots them for a visual check during the experiment and allowed for further analysis later in Section \ref{analysis}.
 $\\$

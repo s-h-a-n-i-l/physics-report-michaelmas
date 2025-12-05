@@ -14,6 +14,7 @@ Implementation follows the TODO in this file:
 from __future__ import annotations
 
 from pathlib import Path
+import re
 from typing import Dict, List
 
 import matplotlib.pyplot as plt
@@ -197,11 +198,32 @@ def loop_statistics(h: np.ndarray, b: np.ndarray) -> Dict[str, float]:
     }
 
 
+def clean_loop_label(raw_name: str) -> tuple[str, str]:
+    """
+    Return a human readable label and filesystem-safe slug for a capture.
+
+    Removes hard coded prefixes like 'capture6_3_2', any bracketed suffixes,
+    collapses whitespace/underscores, and title-cases the final display label.
+    """
+    cleaned = raw_name
+    cleaned = re.sub(r"capture6_3_2", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"^capture", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\([^)]*\)", "", cleaned)
+    cleaned = cleaned.replace("__", "_")
+    cleaned = re.sub(r"[_\-]+", " ", cleaned)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+    if not cleaned:
+        cleaned = raw_name
+    display_label = cleaned.title()
+    slug = re.sub(r"\s+", "_", display_label.lower())
+    return display_label, slug
+
+
 def plot_loop(
     h: np.ndarray,
     b: np.ndarray,
     dataset: str,
-    capture_name: str,
+    display_name: str,
     stats: Dict[str, float],
     output_path: Path,
 ) -> None:
@@ -211,7 +233,7 @@ def plot_loop(
 
     ax.set_xlabel("H (A/m)")
     ax.set_ylabel("B (T)")
-    ax.set_title(f" {capture_name[5:].replace('_', ' ')} hysteresis loop (20 ms segment)".title())
+    ax.set_title(f"{display_name} Hysteresis Loop (20 ms Segment)")
     ax.grid(alpha=0.3)
     formatter_x = ScalarFormatter(useOffset=False)
     formatter_x.set_scientific(False)
@@ -259,6 +281,7 @@ def main() -> None:
         dataset_label = rel_path.parent / rel_path.stem if rel_path.parent != Path(".") else Path(rel_path.stem)
         dataset_label_str = str(dataset_label)
         material_key = infer_material_from_path(csv_path)
+        display_label, slug_label = clean_loop_label(csv_path.stem)
 
         df = load_capture(csv_path)
         loop_df = extract_loop_window(df)
@@ -268,13 +291,13 @@ def main() -> None:
         stats = loop_statistics(h, b)
 
         output_dir = PLOT_ROOT / rel_path.parent
-        output_path = output_dir / f"{csv_path.stem}_hysteresis.png"
-        plot_loop(h, b, dataset_label_str, csv_path.stem, stats, output_path)
+        output_path = output_dir / f"{slug_label}_hysteresis.png"
+        plot_loop(h, b, dataset_label_str, display_label, stats, output_path)
 
         summary_rows.append(
             {
-                "dataset_label": dataset_label_str,
-                "capture": csv_path.stem,
+                "dataset_label": display_label,
+                "capture": slug_label,
                 "material": material_key,
                 "h_min_A_per_m": stats["h_min"],
                 "h_max_A_per_m": stats["h_max"],
@@ -293,7 +316,7 @@ def main() -> None:
         )
 
         print(
-            f"{dataset_label_str}: "
+            f"{display_label}: "
             f"H [{stats['h_min']:.2f}, {stats['h_max']:.2f}] A/m | "
             f"B [{stats['b_min']:.3f}, {stats['b_max']:.3f}] T | "
             f"Area {stats['loop_area']:.3e} T·A/m | "
