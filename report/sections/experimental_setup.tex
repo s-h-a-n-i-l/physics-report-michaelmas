@@ -1,0 +1,117 @@
+\subsection{Coil assembly and primary circuit}
+Two coils, one of  $ \sim 500$ turns and one of $ \sim 400$ turns, were co-axially wound into a solenoid.
+The coil with 500 turns was designated the primary coil and connected in series with 
+a $2 \pm 0.1 \,\Omega$ resistor ($R_p$) to reduce the current. This allowed us to calculate the 
+current through the coil and thus the magnetic field strength through the coil 
+($I = \frac{V}{R_p} \rightarrow H = \frac{nI}{L}\,\, (eqn \ref{H eqn})$) and ensured the coil did not overheat. 
+This part of the circuit was completed by connecting it to a signal generator set to 
+produce an AC voltage of $5 \pm 0.01 V_{pp}$  (Peak to Peak) at $50 \pm 0.1 \, \text{Hz}$.
+$\\$
+$\\$
+The secondary coil was then attached to an integrator circuit.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.75\textwidth]{../report/figures/full circuit.png}
+    \caption{integrator circuit.}
+    \label{fig:full_circuit}
+\end{figure}
+$\\$
+$\\$
+
+\subsection{Integrator design and calibration}
+The integrator circuit was set up as shown below:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../report/figures/intergrator_circuit.png}
+    \caption{integrator circuit\cite{transformer_coils}.}
+    \label{fig:integrator_circuit}
+\end{figure} $\\$
+$R_2$ was chosen to be, 1M$\Omega$. $\\$ 
+After measuring $R_2$, it was found to be 991.2$\pm 0.1 K\Omega$
+$\\$
+The value of $C_1$ s chosen such that $    Z_i << 1 M \Omega $ at 50 Hz.
+$\\$
+\begin{gather}
+    Z_i << 1 M \Omega 
+    \\
+    Z_i  = \frac {1}{\omega C_1}
+    \\
+    \frac {1}{\omega C_1} << 1 M \Omega
+    \\
+    \frac {1}{2 \pi \times 50 \times C_1} << 10^6
+    \\
+    C_1 >> \, 3.18 nF
+\end{gather} 
+Therefore Picking 100 nF was suitable.
+$\\$
+Next $R_i$ needed to be chosen. To make the calculations easier, an $R_i$ value that would give a gain of 1 was chosen.
+\begin{gather}
+    gain = \abs{\frac{V_{out}}{V_{in}}} =  \frac {1}{\omega R_i C_1}
+    \\
+    1 = \frac {1}{\omega R_i C_1}
+    \\
+    R_i = 31.83 K \Omega
+    \\
+    R_i \approx 30 K \Omega
+\end{gather}
+the chosen resistor and capacitor were then measured accurately, Giving:
+$\\$
+\begin{gather}
+    R_i = 32,830 \pm 5 \Omega \\
+    C_1 = 97.8 \pm 0.1 nF \\
+    \therefore \nonumber\\
+    theoretical \,\, gain = \frac {1}{2 \pi \times 50 \times 32,830 \times 97.8 \times 10^{-9}} = 0.9913
+\end{gather}
+$\\$
+After setting up the circuit, the oscilloscope was attached to the signal generator to measure the input and to 
+measure the output of the circuit.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.75\textwidth]{../report/figures/integrator_channels.png}
+    \caption{Measurements of the input and output of the circuit figure.}
+    \label{fig:gain_measurement}
+\end{figure}
+$\\$
+\begin{equation}
+    Measured \,\, gain = \abs{\frac {V_{out}}{V_{in}}} = \frac {14.38 V}{10.49 V} = 1.37 \pm 0.005
+\end{equation}
+$\\$
+This is a $38\%$ deviation from the theoretical value and may be due to a square wave being tested. 
+This is composed of sinusoidal waves of many frequencies and so will have some at the odd harmonics 
+of the fundamental frequency of the integrator circuit (e.g. 3f = 150 Hz, 5f = 250 Hz, etc.). This is combined 
+with the op-amp not being ideal and having a limited bandwidth can result in a different gain to the theoretical value.
+This is treated as a systematic error in the experiment and was used as gain in the subsequent calculations.
+$\\$
+
+\subsection{Data acquisition and sample preparation}
+
+The samples used were:$\\$
+$\bullet$ Mild steel$\\$
+$\bullet$ Transformer iron$\\$
+$\bullet$ CuNi alloy at 10$^\circ$C and above 40$^\circ$C$\\$
+$\\$
+the coil length and the cross-sectional area of the samples were measured.
+This was done using a vernier caliper to measure the length and width of the cuboid mild steel and transformer iron samples 
+and the diameter of the cylindrical CuNi alloy sample.
+$\\$
+Then the experiment was run:
+The signal generator was turned on to feed an AC current into the primary coil
+after Waiting until the circuit reached a steady state the data points for 20 cycles were saved.
+This was done immediately to ensure the coil didn't heat up and change its resistance during the measurement.
+The coil was then turned off and this was repeated for the other samples.
+$\\$
+$\\$
+First the measurements were performed without a sample (air) to act as a control, then metals.
+$\\$
+$\\$
+When measuring the CuNi alloy it was placed into hot water to raise its temperature to above 40$^\circ$C
+and then placed into ice water to cool it to 10$^\circ$C.
+The low time difference between the samples being removed from the water and being tested results in minor temperature 
+changes during the measurement but the actual temperature was not measured during the hysteresis and thus the temperatures should be taken as approximate.
+$\\$
+$\\$
+Voltages across the series 2 $\Omega$ resistor (Channel A) and integrator output (Channel B) were recorded using a PicoScope 
+at a sampling rate of 1.95 MHz. For each sample 20 cycles at 50 Hz ($\sim$0.32 s) were recorded. Was then exported to be analysed using a Python script that splits up 
+the individual loop and plots them for a visual check during the experiment and allowed for further analysis later in Section \ref{analysis}.
+$\\$

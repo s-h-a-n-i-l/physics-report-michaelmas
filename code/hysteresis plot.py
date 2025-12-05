@@ -133,7 +133,7 @@ def extract_loop_window(df: pd.DataFrame) -> pd.DataFrame:
 def gradient_metrics(
     h: np.ndarray,
     b: np.ndarray,
-    edge_points: int = 2,
+    edge_points: int = 20,
 ) -> tuple[float, float, float, float]:
     """
     Return gradient metrics:
@@ -158,7 +158,7 @@ def gradient_metrics(
         max_grad = float("nan")
 
     def slope_of_edge(select_high: bool) -> float:
-        if edge_points < 2:
+        if edge_points < 2 or len(h_arr) < edge_points:
             return float("nan")
         order = np.argsort(h_arr)
         idx = order[-edge_points:] if select_high else order[:edge_points]
