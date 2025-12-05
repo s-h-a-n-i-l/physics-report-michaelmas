@@ -1,0 +1,188 @@
+\subsection{Overview}
+The first step was to record the nominal measurements of the samples used throughout the run, which are summarised in Table~\ref{tab:sample-measurements}. Over the course of the experiment five sets of data were collected: the air control experiment, mild steel, transformer iron, copper at approximately \(10\,^\circ\mathrm{C}\), and copper at \SI{40}{\celsius}. Transformer iron and the elevated-temperature copper measurements were both repeated because the initial readings could not be reconciled with the literature values. The retaken datasets proved indistinguishable from the originals, so the initial measurements were retained for the subsequent analysis.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Nominal sample dimensions and cross-sectional areas used to convert the voltage measurements into magnetic quantities. Values marked ``--'' should be replaced with the recorded data.}
+  \label{tab:sample-measurements}
+  \begin{tabular}{lcc}
+    \toprule
+    Sample & Key measurements & Cross-sectional area / \si{\square\milli\metre} \\
+    \midrule
+    Air control & Length = -- mm, Diameter = -- mm & -- \\
+    Mild steel & Length = -- mm, Diameter = -- mm & -- \\
+    Transformer iron & Length = -- mm, Diameter = -- mm & -- \\
+    Copper (\(10\,^\circ\mathrm{C}\)) & Length = -- mm, Diameter = -- mm & -- \\
+    Copper (\SI{40}{\celsius}) & Length = -- mm, Diameter = -- mm & -- \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Table~\ref{tab:data-sets} summarises the recorded data sets and notes the repeated runs.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Summary of the collected data sets.}
+  \label{tab:data-sets}
+  \begin{tabular}{ll}
+    \toprule
+    Data set & Notes \\
+    \midrule
+    Air control experiment & Baseline linear response, no hysteresis expected. \\
+    Mild steel & Hysteresis loop with pronounced end tails. \\
+    Transformer iron & Initial loop deviated from literature; repeated run matched original. \\
+    Copper at \(10\,^\circ\mathrm{C}\) & Hysteresis loop with tail artefacts. \\
+    Copper at \SI{40}{\celsius} & Repeat confirmed the linear response with negligible hysteresis. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Twenty loops of the steady-state response were recorded for each dataset. Using Equations~(2.9) and~(2.1), the voltages across the \(2~\Omega\) resistor and the integrator output were converted into magnetic field strength \(H\) and magnetic flux density \(B\) for the plots that follow.
+
+\subsection{Air calibration}
+The air control plot shows the expected linear response with no hysteresis, because the permeability should be close to that of free space. The behaviour was modelled by \(B = \mu_0 \mu_{\mathrm{r}} H\), and the apparent relative permeability \(\mu_{\mathrm{r}}\) extracted from the slope is smaller than the literature value. The spread of the measured points does not account for this offset, so the discrepancy is interpreted as a systematic error possibly due to parasitic capacitances or the finite input impedance of the measurement chain.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth]{"figures/air plot.png"}
+  \caption{Linear \(B(H)\) response obtained from the air control experiment.}
+  \label{fig:air-control-raw}
+\end{figure}
+
+\subsection{Hysteresis plots}
+Each solid sample produced hysteresis loops whose end regions exhibited tail-like features, despite reaching steady state. These tails are likely caused by unaccounted resistance and capacitances in the coils or by the finite response time of the integrator. To recover smooth gradients at the loop extremities, the tails were fitted with fifth-order polynomials before extracting the magnetic parameters.
+
+\subsubsection{Mild steel}
+Figure~\ref{fig:mild-steel-raw} shows the raw hysteresis data for the mild steel sample.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth]{figures/hysterysis/mild_steel_H[-19000,19000]_BH_raw.png}
+  \caption{Raw mild steel hysteresis loops.}
+  \label{fig:mild-steel-raw}
+\end{figure}
+
+After applying the fifth-order polynomial fit to the tails, we obtained the smoother loop shown in Figure~\ref{fig:mild-steel-fit}. The fit allows the determination of a continuous gradient at the loop ends for the permeability estimates.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth]{figures/hysterysis/mild_steel_H[-19000,19000]_BH_processed.png}
+  \caption{Mild steel hysteresis loop after polynomial tail fitting.}
+  \label{fig:mild-steel-fit}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Summary of fitted mild steel loop parameters.}
+  \label{tab:mild-steel-summary}
+  \begin{tabular}{lcc}
+    \toprule
+    Feature & Value & Units \\
+    \midrule
+    Coercive field \(H_{\mathrm{c}}\) & -- & A/m \\
+    Remanent \(B_{\mathrm{r}}\) & -- & T \\
+    Maximum \(B\) & -- & T \\
+    Polynomial tail gradient & -- & T/A/m \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsubsection{Transformer iron}
+Figure~\ref{fig:transformer-raw} shows the raw transformer iron loops, which also required polynomial smoothing of the tails.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth]{figures/hysterysis/transformer_iron_H[-6000,6000]_BH_raw.png}
+  \caption{Raw transformer iron hysteresis loops.}
+  \label{fig:transformer-raw}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth]{figures/hysterysis/transformer_iron_H[-6000,6000]_BH_processed.png}
+  \caption{Transformer iron loop after polynomial tail fitting.}
+  \label{fig:transformer-fit}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Fitted transformer iron properties.}
+  \label{tab:transformer-iron-summary}
+  \begin{tabular}{lcc}
+    \toprule
+    Feature & Value & Units \\
+    \midrule
+    Coercive field \(H_{\mathrm{c}}\) & -- & A/m \\
+    Remanent \(B_{\mathrm{r}}\) & -- & T \\
+    Maximum \(B\) & -- & T \\
+    Polynomial tail gradient & -- & T/A/m \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsubsection{CuNi at \(10\,^\circ\mathrm{C}\)}
+The CuNi alloy at \(10\,^\circ\mathrm{C}\) follows similar behaviour, with the raw data plotted in Figure~\ref{fig:cuni10-raw}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth]{figures/hysterysis/copper_alloy_at_10_c_H[-3000,3000]_BH_raw.png}
+  \caption{Raw CuNi (\(10\,^\circ\mathrm{C}\)) hysteresis loops.}
+  \label{fig:cuni10-raw}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth]{figures/hysterysis/copper_alloy_at_10_c_H[-3000,3000]_BH_processed.png}
+  \caption{Polynomial-fit CuNi (\(10\,^\circ\mathrm{C}\)) loop.}
+  \label{fig:cuni10-fit}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Summary of CuNi (\(10\,^\circ\mathrm{C}\)) loop parameters.}
+  \label{tab:cuni10-summary}
+  \begin{tabular}{lcc}
+    \toprule
+    Feature & Value & Units \\
+    \midrule
+    Coercive field \(H_{\mathrm{c}}\) & -- & A/m \\
+    Remanent \(B_{\mathrm{r}}\) & -- & T \\
+    Maximum \(B\) & -- & T \\
+    Polynomial tail gradient & -- & T/A/m \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsubsection{CuNi at \SI{40}{\celsius}}
+Heating the CuNi sample to \SI{40}{\celsius} suppresses the hysteresis, leaving a near-linear \(B(H)\) response (Figure~\ref{fig:cuni40-raw}). A linear regression therefore replaced the polynomial tail fits for this dataset.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth]{figures/hysterysis/copper_alloy_above_40_c_linear_BH_raw_linear.png}
+  \caption{Raw CuNi (\SI{40}{\celsius}) data showing the predominantly linear response.}
+  \label{fig:cuni40-raw}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth]{figures/hysterysis/copper_alloy_above_40_c_linear_BH_linear_fit.png}
+  \caption{Linear regression for the CuNi (\SI{40}{\celsius}) run.}
+  \label{fig:cuni40-fit}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Linear regression summary for CuNi at \SI{40}{\celsius}.}
+  \label{tab:cuni40-summary}
+  \begin{tabular}{lcc}
+    \toprule
+    Quantity & Value & Units \\
+    \midrule
+    Slope \(dB/dH\) & -- & T/A/m \\
+    Intercept \(B_0\) & -- & T \\
+    Coefficient of determination \(R^2\) & -- & — \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+For all samples the raw loops and the fitted/regressed curves feed into the final discussion of permeability versus temperature. The figures above preserve the unaltered data, while the smoothed loops and regressions provide the numerical input used later in the report.
