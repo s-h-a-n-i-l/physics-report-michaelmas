@@ -73,16 +73,20 @@ After applying the fifth-order polynomial fit to the tails, we obtained the smoo
 
 \begin{table}[htbp]
   \centering
-  \caption{Summary of fitted mild steel loop parameters.}
+  \caption{Mild steel loop statistics from the polynomial-tail analysis (cell 10 of the notebook).}
   \label{tab:mild-steel-summary}
-  \begin{tabular}{lcc}
+  \begin{tabular}{lccc}
     \toprule
-    Feature & Value & Units \\
+    Quantity & Value & Uncertainty & Units \\
     \midrule
-    Coercive field \(H_{\mathrm{c}}\) & -- & A/m \\
-    Remanent \(B_{\mathrm{r}}\) & -- & T \\
-    Maximum \(B\) & -- & T \\
-    Polynomial tail gradient & -- & T/A/m \\
+    \(B\) range & 2.92 & 0.00034 & T \\
+    \(H\) range & \(5.61\times 10^{4}\) & 31 & A/m \\
+    Loop area (absolute) & \(2.76\times 10^{4}\) & 8.2 & T·A/m \\
+    Maximum \(\mu_{\mathrm{r}}\) (numeric gradient) & 123 & 4.5 & — \\
+    Minimum \(\mu_{\mathrm{r}}\) (numeric gradient) & 0.00 & 0.00 & — \\
+    Tail slope (min) & \(2.22\times 10^{-6}\) & \(2.4\times 10^{-7}\) & T/A/m \\
+    Tail slope (max) & \(1.16\times 10^{-4}\) & \(2.2\times 10^{-8}\) & T/A/m \\
+    RMS \(B\) residual & 0.0149 & 0.000013 & T \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -106,16 +110,20 @@ Figure~\ref{fig:transformer-raw} shows the raw transformer iron loops, which als
 
 \begin{table}[htbp]
   \centering
-  \caption{Fitted transformer iron properties.}
+  \caption{Transformer iron loop statistics from the polynomial-tail analysis (cells 7 and 9).}
   \label{tab:transformer-iron-summary}
-  \begin{tabular}{lcc}
+  \begin{tabular}{lccc}
     \toprule
-    Feature & Value & Units \\
+    Quantity & Value & Uncertainty & Units \\
     \midrule
-    Coercive field \(H_{\mathrm{c}}\) & -- & A/m \\
-    Remanent \(B_{\mathrm{r}}\) & -- & T \\
-    Maximum \(B\) & -- & T \\
-    Polynomial tail gradient & -- & T/A/m \\
+    \(B\) range & 3.44 & 0.00068 & T \\
+    \(H\) range & \(5.61\times 10^{4}\) & 38 & A/m \\
+    Loop area (absolute) & \(9.46\times 10^{3}\) & 21 & T·A/m \\
+    Maximum \(\mu_{\mathrm{r}}\) (numeric gradient) & 332 & 4.2 & — \\
+    Minimum \(\mu_{\mathrm{r}}\) (numeric gradient) & 13.9 & 0.025 & — \\
+    Tail slope (min) & \(1.74\times 10^{-5}\) & \(3.2\times 10^{-8}\) & T/A/m \\
+    Tail slope (max) & \(3.14\times 10^{-4}\) & \(1.9\times 10^{-7}\) & T/A/m \\
+    RMS \(B\) residual & 0.0326 & 0.000013 & T \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -139,16 +147,20 @@ The CuNi alloy at \(10\,^\circ\mathrm{C}\) follows similar behaviour, with the r
 
 \begin{table}[htbp]
   \centering
-  \caption{Summary of CuNi (\(10\,^\circ\mathrm{C}\)) loop parameters.}
+  \caption{CuNi (\(10\,^\circ\mathrm{C}\)) loop statistics after polynomial tail smoothing (cell 11).}
   \label{tab:cuni10-summary}
-  \begin{tabular}{lcc}
+  \begin{tabular}{lccc}
     \toprule
-    Feature & Value & Units \\
+    Quantity & Value & Uncertainty & Units \\
     \midrule
-    Coercive field \(H_{\mathrm{c}}\) & -- & A/m \\
-    Remanent \(B_{\mathrm{r}}\) & -- & T \\
-    Maximum \(B\) & -- & T \\
-    Polynomial tail gradient & -- & T/A/m \\
+    \(B\) range & 0.17 & 0.00001 & T \\
+    \(H\) range & \(5.68\times 10^{4}\) & \(1.7\times 10^{-12}\) & A/m \\
+    Loop area (absolute) & 92.1 & 0.41 & T·A/m \\
+    Maximum \(\mu_{\mathrm{r}}\) (numeric gradient) & 7.88 & 0.0023 & — \\
+    Minimum \(\mu_{\mathrm{r}}\) (numeric gradient) & 1.35 & 0.0037 & — \\
+    Tail slope (min) & \(1.28\times 10^{-6}\) & \(1.3\times 10^{-7}\) & T/A/m \\
+    Tail slope (max) & \(2.19\times 10^{-5}\) & \(5.6\times 10^{-8}\) & T/A/m \\
+    RMS \(B\) residual & 0.002 & 0.0000013 & T \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -172,15 +184,19 @@ Heating the CuNi sample to \SI{40}{\celsius} suppresses the hysteresis, leaving 
 
 \begin{table}[htbp]
   \centering
-  \caption{Linear regression summary for CuNi at \SI{40}{\celsius}.}
+  \caption{Linear regression summary for CuNi at \SI{40}{\celsius} (cell 13).}
   \label{tab:cuni40-summary}
-  \begin{tabular}{lcc}
+  \begin{tabular}{lccc}
     \toprule
-    Quantity & Value & Units \\
+    Quantity & Value & Uncertainty & Units \\
     \midrule
-    Slope \(dB/dH\) & -- & T/A/m \\
-    Intercept \(B_0\) & -- & T \\
-    Coefficient of determination \(R^2\) & -- & — \\
+    \(B\) range & 0.0954 & 0.00011 & T \\
+    \(H\) range & \(5.56\times 10^{4}\) & 19 & A/m \\
+    Slope \(dB/dH\) & \(1.67\times 10^{-6}\) & \(3.36\times 10^{-10}\) & T/A/m \\
+    Intercept \(B_0\) & 0.00108 & \(6.58\times 10^{-6}\) & T \\
+    Relative \(\mu_{\mathrm{r}}\) (linear fit) & 1.33 & \(7.2\times 10^{-5}\) & — \\
+    Loop area & 126 & 2.4 & T·A/m \\
+    RMS \(B\) residual & 0.0013 & 0.0000017 & T \\
     \bottomrule
   \end{tabular}
 \end{table}
