@@ -39,6 +39,8 @@ Table~\ref{tab:data-sets} summarises the recorded data sets and notes the repeat
 
 Twenty loops of the steady-state response were recorded for each dataset. Using Equations~(2.9) and~(2.1), the voltages across the \(2~\Omega\) resistor and the integrator output were converted into magnetic field strength \(H\) and magnetic flux density \(B\) for the plots that follow.
 
+\FloatBarrier
+
 \subsection{Air calibration}
 The air control plot shows the expected linear response with no hysteresis, because the permeability should be close to that of free space. The behaviour was modelled by \(B = \mu_0 \mu_{\mathrm{r}} H\), and the apparent relative permeability \(\mu_{\mathrm{r}}\) extracted from the slope is smaller than the literature value. The spread of the measured points does not account for this offset, so the discrepancy is interpreted as a systematic error possibly due to parasitic capacitances or the finite input impedance of the measurement chain.
 
@@ -48,6 +50,8 @@ The air control plot shows the expected linear response with no hysteresis, beca
   \caption{Linear \(B(H)\) response obtained from the air control experiment.}
   \label{fig:air-control-raw}
 \end{figure}
+
+\FloatBarrier
 
 \subsection{Hysteresis plots}
 Each solid sample produced hysteresis loops whose end regions exhibited tail-like features, despite reaching steady state. These tails are likely caused by unaccounted resistance and capacitances in the coils or by the finite response time of the integrator. To recover smooth gradients at the loop extremities, the tails were fitted with fifth-order polynomials before extracting the magnetic parameters.
@@ -91,6 +95,8 @@ After applying the fifth-order polynomial fit to the tails, we obtained the smoo
   \end{tabular}
 \end{table}
 
+\FloatBarrier
+
 \subsubsection{Transformer iron}
 Figure~\ref{fig:transformer-raw} shows the raw transformer iron loops, which also required polynomial smoothing of the tails.
 
@@ -127,6 +133,8 @@ Figure~\ref{fig:transformer-raw} shows the raw transformer iron loops, which als
     \bottomrule
   \end{tabular}
 \end{table}
+
+\FloatBarrier
 
 \subsubsection{CuNi at \(10\,^\circ\mathrm{C}\)}
 The CuNi alloy at \(10\,^\circ\mathrm{C}\) follows similar behaviour, with the raw data plotted in Figure~\ref{fig:cuni10-raw}.
@@ -165,6 +173,8 @@ The CuNi alloy at \(10\,^\circ\mathrm{C}\) follows similar behaviour, with the r
   \end{tabular}
 \end{table}
 
+\FloatBarrier
+
 \subsubsection{CuNi at \SI{40}{\celsius}}
 Heating the CuNi sample to \SI{40}{\celsius} suppresses the hysteresis, leaving a near-linear \(B(H)\) response (Figure~\ref{fig:cuni40-raw}). A linear regression therefore replaced the polynomial tail fits for this dataset.
 
@@ -200,5 +210,7 @@ Heating the CuNi sample to \SI{40}{\celsius} suppresses the hysteresis, leaving 
     \bottomrule
   \end{tabular}
 \end{table}
+
+\FloatBarrier
 
 For all samples the raw loops and the fitted/regressed curves feed into the final discussion of permeability versus temperature. The figures above preserve the unaltered data, while the smoothed loops and regressions provide the numerical input used later in the report.
