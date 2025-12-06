@@ -3,9 +3,9 @@ Two coils, one of  $ \sim 500$ turns and one of $ \sim 400$ turns, were co-axial
 The coil with 500 turns was designated the primary coil and connected in series with 
 a $2 \pm 0.1 \,\Omega$ resistor ($R_p$) to reduce the current. This allowed us to calculate the 
 current through the coil and thus the magnetic field strength through the coil 
-($I = \frac{V}{R_p} \rightarrow H = \frac{nI}{L}\,\, (eqn \ref{H eqn})$) and ensured the coil did not overheat. 
+($I = \frac{V}{R_p} \rightarrow H = \frac{nI}{L}$, see Equation~$\eqref{eq:H-field}$) and ensured the coil did not overheat. 
 This part of the circuit was completed by connecting it to a signal generator set to 
-produce an AC voltage of $5 \pm 0.01 V_{pp}$  (Peak to Peak) at $50 \pm 0.1 \, \text{Hz}$.
+produce an AC voltage of $5 \pm 0.01 V_{pp}$  (Peak to Peak) at $50 \pm 0.1 \, \text{Hz}$ (to emulate mains electricity supply).
 $\\$
 $\\$
 The secondary coil was then attached to an integrator circuit.
@@ -16,6 +16,8 @@ The secondary coil was then attached to an integrator circuit.
     \caption{integrator circuit.}
     \label{fig:full_circuit}
 \end{figure}
+
+\FloatBarrier
 $\\$
 $\\$
 
@@ -84,6 +86,8 @@ with the op-amp not being ideal and having a limited bandwidth can result in a d
 This is treated as a systematic error in the experiment and was used as gain in the subsequent calculations.
 $\\$
 
+\FloatBarrier
+
 \subsection{Data acquisition and sample preparation}
 
 The samples used were:$\\$
@@ -117,3 +121,5 @@ filtered out by the PicoScope as it is seen as DC offset as a result of the low 
   recorded. Was then exported to be analysed using a Python script that splits up 
 the individual loop and plots them for a visual check during the experiment and allowed for further analysis later in Section \ref{analysis}.
 $\\$
+
+\FloatBarrier

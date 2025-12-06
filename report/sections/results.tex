@@ -1,24 +1,249 @@
 \subsection{Overview}
-The first step was to record the nominal measurements of the samples used throughout the run, which are summarised in Table~\ref{tab:sample-measurements}. Over the course of the experiment five sets of data were collected: the air control experiment, mild steel, transformer iron, copper at approximately \(10\,^\circ\mathrm{C}\), and copper at \SI{40}{\celsius}. Transformer iron and the elevated-temperature copper measurements were both repeated because the initial readings could not be reconciled with the literature values. The retaken datasets proved indistinguishable from the originals, so the initial measurements were retained for the subsequent analysis.
+The first step was to record the nominal measurements of the samples used throughout the run, 
+which are summarised in Table~\ref{tab:sample-measurements} below. Over the course of the 
+experiment five sets of data were collected: $\\$
+$\\$
+$\bullet$the air control experiment$\\$
+$\bullet$mild steel,$\\$
+$\bullet$transformer iron$\\$
+$\bullet$CuNi alloy at approximately \(10\,^\circ\mathrm{C}\)$\\$
+$\bullet$CuNi alloy at \SI{40}{\celsius}$\\$
+$\\$
+The transformer iron and elevated-temperature CuNi alloy datasets were each recorded twice; 
+the repeats agreed with the original measurements within the random scatter, so only the original runs 
+are used in the tables below.
+$\\$
+\FloatBarrier
+
+
 
 \begin{table}[htbp]
   \centering
-  \caption{Nominal sample dimensions and cross-sectional areas used to convert the voltage measurements into magnetic quantities. Values marked ``--'' should be replaced with the recorded data.}
+  \caption{Nominal sample dimensions and cross-sectional areas used to convert the voltage measurements into magnetic quantities.}
   \label{tab:sample-measurements}
   \begin{tabular}{lcc}
     \toprule
-    Sample & Key measurements & Cross-sectional area / \si{\square\milli\metre} \\
+    Sample & Key measurements & Cross-sectional area (\si{\square\milli\metre}) \\
     \midrule
-    Air control & Length = -- mm, Diameter = -- mm & -- \\
-    Mild steel & Length = -- mm, Diameter = -- mm & -- \\
-    Transformer iron & Length = -- mm, Diameter = -- mm & -- \\
-    Copper (\(10\,^\circ\mathrm{C}\)) & Length = -- mm, Diameter = -- mm & -- \\
-    Copper (\SI{40}{\celsius}) & Length = -- mm, Diameter = -- mm & -- \\
+    Air control &  Diameter = 7.8 $\pm$ 0.1 mm & 47.8 $\pm$  1.2 \\
+    Mild steel &  Diameter = 3.12 $\pm$ 0.04 mm & 7.65 $\pm$ 0.2 \\
+    Transformer iron &  width = 4.22 $\pm$ 0.02 mm, Thickness = 0.7 $\pm$ 0.02 mm & 2.95 $\pm$ 0.16 \\
+    Copper Nickel alloy &  Diameter = 5.00 $\pm$ 0.02 mm & 19.6 $\pm$ 0.16 \\
+
+    \bottomrule 
+  \end{tabular}
+\end{table}
+$\\$$\\$
+Twenty loops of the steady-state response were recorded for each dataset. Using Equations~\eqref{eq:H-field} and~\eqref{eq:B-from-integrator}, the 
+voltages across the \(2~\Omega\) resistor and the integrator output were converted into magnetic field strength \(H\) 
+and magnetic flux density \(B\) for the plots that follow.
+$\\$$\\$
+From the multiple recorded loops, the mean and standard deviation of key metrics were calculated and used 
+as estimates of random uncertainties. In all cases, loop-to-loop scatter was small. Larger systematic uncertainties 
+are expected from calibration of the integrator gain, resistor values and sample geometry; these are not included in 
+the quoted error bars but are discussed qualitatively in Section 5
+\FloatBarrier
+
+\subsection{Air calibration}
+The air control plot shows the expected linear response with no hysteresis, 
+because the permeability should be close to that of free space. The behavior was 
+modelled by \(B = \mu_0 \mu_{\mathrm{r}} H\), and the apparent relative permeability 
+\(\mu_{\mathrm{r}}\) calculated from the slope is smaller than the expected value. The 
+error in the fitted line does not account for this offset, so the discrepancy is 
+interpreted as a systematic error possibly due to parasitic capacitance.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{"figures/air plot.png"}
+  \caption{Linear \(B(H)\) response obtained from the air control experiment.}
+  \label{fig:air-control-raw}
+\end{figure}
+$\\$
+the figure~\ref{fig:air-control-raw} shows a strong linear response from the air control experiment as expected. 
+there is minor scatter between the loops which is likely due to noise in the measurement system. This resulted in the 
+low uncertancy calcuated using the standard deviation between gradients and intercepts in the set of modeled loops.
+$\\$
+$\\$
+Interpreting the results from \ref{fig:air-control-raw}, the relative permeability \(\mu_{\mathrm{r}}\) was 
+calculated from the numeric gradient \(dB/dH\).
+\begin{gather}
+  \mu_{\mathrm{r}} = \frac{1}{\mu_0}\frac{dB}{dH} \\
+ y = (4.667\times 10^{-07} \pm 1.260\times 10^{-10})x + (3.816\times 10^{-04} \pm 2.511\times 10^{-06})\\
+  \therefore \nonumber\\
+  \mu_{\mathrm{r}} = 0.37 \pm 0.03
+\end{gather}
+This value is significantly lower than the expected \(\mu_{\mathrm{r}} \approx 1\) for air,
+indicating a systematic error in the measurement setup.
+\subsection{Hysteresis plots}
+the 20 recorded hysteresis loops for each material were plotted individually. In all three ferromagnetic datasets the raw 
+$B(H)$ loops show small secondary loops at large $\abs{H}$ (most clearly in transformer iron, Figure ~$\ref{fig:transformer-raw}$).
+$\\$
+To account for this the end tails of the hysteresis loops were fitted to fifth order polynomials allowing a smooth gradient to be 
+found at the ends, allowing us to give a more stable estimate of the saturation permeability.
+
+
+\subsubsection{Mild steel}
+Figure~\ref{fig:mild-steel-raw} shows the raw hysteresis data for the mild steel sample.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{figures/hysterysis/mild_steel_H[-19000,19000]_BH_raw.png}
+  \caption{Raw mild steel hysteresis loops.}
+  \label{fig:mild-steel-raw}
+\end{figure}
+$\\$
+After applying the fifth-order polynomial fit to the tails, we obtained the smoother loop shown in Figure~\ref{fig:mild-steel-fit}. 
+$\\$
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{figures/hysterysis/mild_steel_H[-19000,19000]_BH_processed.png}
+  \caption{Mild steel hysteresis loop after polynomial tail fitting.}
+  \label{fig:mild-steel-fit}
+\end{figure}
+$\\$
+The processed loop (figure~\ref{fig:mild-steel-fit}) shows relatively wide hysteresis curve with a saturation flux density of around 1.4T and a coercive field in the order of $10^3 \, \mathrm{Am}^{-1}$
+$\\$
+$\\$
+\begin{table}[htbp]
+  \centering
+  \caption{Mild steel loop statistics from the polynomial-tail analysis (cell 10 of the notebook).}
+  \label{tab:mild-steel-summary}
+  \begin{tabular}{lccc}
+    \toprule
+    Quantity & Value & Uncertainty & Units \\
+    \midrule
+    \(B\) range & 2.92 & 0.00034 & T \\
+    \(H\) range & \(5.61\times 10^{4}\) & 31 & \si{\ampere\metre^{-1}} \\
+    Power loss per unit area & \(1.38\times 10^{6}\) & 410 & \si{\watt\per\metre\cubed} \\
+    Maximum \(\mu_{\mathrm{r}}\) (numeric gradient) & 123 & 4.5 & — \\
+    Minimum \(\mu_{\mathrm{r}}\) (numeric gradient) & 14.0 & 0.025 & — \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-Table~\ref{tab:data-sets} summarises the recorded data sets and notes the repeated runs.
+\FloatBarrier
+
+\subsubsection{Transformer iron}
+Figure~\ref{fig:transformer-raw} shows the raw transformer iron loops, which also required polynomial smoothing of the tails.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{figures/hysterysis/transformer_iron_H[-6000,6000]_BH_raw.png}
+  \caption{Raw transformer iron hysteresis loops.}
+  \label{fig:transformer-raw}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{figures/hysterysis/transformer_iron_H[-6000,6000]_BH_processed.png}
+  \caption{Transformer iron loop after polynomial tail fitting.}
+  \label{fig:transformer-fit}
+\end{figure}
+$\\$
+The transformer iron loop (Figure~\ref{fig:transformer-fit}) is narrower and steeper in the central region than for mild steel, with a similar saturation flux density but a smaller coercive field.
+$\\$
+\begin{table}[htbp]
+  \centering
+  \caption{Transformer iron loop statistics from the polynomial-tail analysis (cells 7 and 9).}
+  \label{tab:transformer-iron-summary}
+  \begin{tabular}{lccc}
+    \toprule
+    Quantity & Value & Uncertainty & Units \\
+    \midrule
+    \(B\) range & 3.44 & 0.00068 & T \\
+    \(H\) range & \(5.61\times 10^{4}\) & 38 & \si{\ampere\metre^{-1}} \\
+    Power loss per unit area & \(4.73\times 10^{5}\) & 1050 & \si{\watt\per\metre\cubed} \\
+    Maximum \(\mu_{\mathrm{r}}\) (numeric gradient) & 332 & 4.2 & — \\
+    Minimum \(\mu_{\mathrm{r}}\) (numeric gradient) & 13.9 & 0.025 & — \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\FloatBarrier
+
+\subsubsection{CuNi at \(10\,^\circ\mathrm{C}\)}
+The CuNi alloy at \(10\,^\circ\mathrm{C}\) follows similar behaviour, with the raw data plotted in Figure~\ref{fig:cuni10-raw}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{figures/hysterysis/copper_alloy_at_10_c_H[-3000,3000]_BH_raw.png}
+  \caption{Raw CuNi (\(10\,^\circ\mathrm{C}\)) hysteresis loops.}
+  \label{fig:cuni10-raw}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{figures/hysterysis/copper_alloy_at_10_c_H[-3000,3000]_BH_processed.png}
+  \caption{Polynomial-fit CuNi (\(10\,^\circ\mathrm{C}\)) loop.}
+  \label{fig:cuni10-fit}
+\end{figure}
+$\\$
+At $10\,^\circ\mathrm{C}$ the CuNi alloy still shows a small but clear hysteresis loop (Figure \ref{fig:cuni10-fit}), but the \(b\) range of only 0.17 $\pm$ 0.01 T 
+is about 20 times smaller than for transformer iron, and the loop is much narrower in \(H\).
+$\\$
+\begin{table}[htbp]
+  \centering
+  \caption{CuNi (\(10\,^\circ\mathrm{C}\)) loop statistics after polynomial tail smoothing (cell 11).}
+  \label{tab:cuni10-summary}
+  \begin{tabular}{lccc}
+    \toprule
+    Quantity & Value & Uncertainty & Units \\
+    \midrule
+    \(B\) range & 0.17 & 0.00001 & T \\
+    \(H\) range & \(5.68\times 10^{4}\) & \(1.7\times 10^{-12}\) & \si{\ampere\metre^{-1}} \\
+    Power loss per unit area & 4605 & 20.5 & \si{\watt\per\metre\cubed} \\
+    Maximum \(\mu_{\mathrm{r}}\) (numeric gradient) & 7.88 & 0.0023 & — \\
+    Minimum \(\mu_{\mathrm{r}}\) (numeric gradient) & 1.35 & 0.0037 & — \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\FloatBarrier
+
+\subsubsection{CuNi at \SI{40}{\celsius}}
+Heating the CuNi sample to \SI{40}{\celsius} suppresses the hysteresis, leaving a near-linear \(B(H)\) response (Figure~\ref{fig:cuni40-raw}). A linear regression therefore replaced the polynomial tail fits for this dataset.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{figures/hysterysis/copper_alloy_above_40_c_linear_BH_raw_linear.png}
+  \caption{Raw CuNi (\SI{40}{\celsius}) data showing the predominantly linear response.}
+  \label{fig:cuni40-raw}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{figures/hysterysis/copper_alloy_above_40_c_linear_BH_linear_fit.png}
+  \caption{Linear regression for the CuNi (\SI{40}{\celsius}) run.}
+  \label{fig:cuni40-fit}
+\end{figure}
+$\\$
+When the CuNi alloy is heated to $40\,^\circ\mathrm{C}$, the loop collapses into an almost straight line (Figure~\ref{fig:cuni40-fit}). 
+Within the scatter, the data are consistent with a single linear relation $B = B_{0} + (1.67 \pm 0.03)\times 10^{-6} H$, 
+corresponding to an effective $\mu_{r} = 1.33 \pm 0.01$.
+$\\$
+$\\$
+This is consistent with the alloy being just above its Curie temperature, where the material is only weakly paramagnetic and shows negligible hysteresis.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Linear regression summary for CuNi at \SI{40}{\celsius} (cell 13).}
+  \label{tab:cuni40-summary}
+  \begin{tabular}{lccc}
+    \toprule
+    Quantity & Value & Uncertainty & Units \\
+    \midrule
+    \(B\) range & 0.0954 & 0.00011 & T \\
+    \(H\) range & \(5.56\times 10^{4}\) & 19 & \si{\ampere\metre^{-1}} \\
+    Slope \(dB/dH\) & \(1.67\times 10^{-6}\) & \(3.36\times 10^{-10}\) & \si{\tesla\ampere^{-1}\metre^{-1}} \\
+    Intercept \(B_0\) & 0.00108 & \(6.58\times 10^{-6}\) & T \\
+    Relative \(\mu_{\mathrm{r}}\) (linear fit) & 1.33 & \(7.2\times 10^{-5}\) & — \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\FloatBarrier
+
+\subsection{Summary of results}
 
 \begin{table}[htbp]
   \centering
@@ -37,180 +262,28 @@ Table~\ref{tab:data-sets} summarises the recorded data sets and notes the repeat
   \end{tabular}
 \end{table}
 
-Twenty loops of the steady-state response were recorded for each dataset. Using Equations~(2.9) and~(2.1), the voltages across the \(2~\Omega\) resistor and the integrator output were converted into magnetic field strength \(H\) and magnetic flux density \(B\) for the plots that follow.
-
 \FloatBarrier
 
-\subsection{Air calibration}
-The air control plot shows the expected linear response with no hysteresis, because the permeability should be close to that of free space. The behaviour was modelled by \(B = \mu_0 \mu_{\mathrm{r}} H\), and the apparent relative permeability \(\mu_{\mathrm{r}}\) extracted from the slope is smaller than the literature value. The spread of the measured points does not account for this offset, so the discrepancy is interpreted as a systematic error possibly due to parasitic capacitances or the finite input impedance of the measurement chain.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.75\linewidth]{"figures/air plot.png"}
-  \caption{Linear \(B(H)\) response obtained from the air control experiment.}
-  \label{fig:air-control-raw}
-\end{figure}
-
-\FloatBarrier
-
-\subsection{Hysteresis plots}
-Each solid sample produced hysteresis loops whose end regions exhibited tail-like features, despite reaching steady state. These tails are likely caused by unaccounted resistance and capacitances in the coils or by the finite response time of the integrator. To recover smooth gradients at the loop extremities, the tails were fitted with fifth-order polynomials before extracting the magnetic parameters.
-
-\subsubsection{Mild steel}
-Figure~\ref{fig:mild-steel-raw} shows the raw hysteresis data for the mild steel sample.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.75\linewidth]{figures/hysterysis/mild_steel_H[-19000,19000]_BH_raw.png}
-  \caption{Raw mild steel hysteresis loops.}
-  \label{fig:mild-steel-raw}
-\end{figure}
-
-After applying the fifth-order polynomial fit to the tails, we obtained the smoother loop shown in Figure~\ref{fig:mild-steel-fit}. The fit allows the determination of a continuous gradient at the loop ends for the permeability estimates.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.75\linewidth]{figures/hysterysis/mild_steel_H[-19000,19000]_BH_processed.png}
-  \caption{Mild steel hysteresis loop after polynomial tail fitting.}
-  \label{fig:mild-steel-fit}
-\end{figure}
+Table~\ref{tab:summary-metrics} collects each sample’s peak and minimum \(\mu_{\mathrm{r}}\) together with the power loss per unit area so the datasets can be compared directly.
 
 \begin{table}[htbp]
   \centering
-  \caption{Mild steel loop statistics from the polynomial-tail analysis (cell 10 of the notebook).}
-  \label{tab:mild-steel-summary}
+  \caption{Aggregated magnetic metrics across the measured trials.}
+  \label{tab:summary-metrics}
   \begin{tabular}{lccc}
     \toprule
-    Quantity & Value & Uncertainty & Units \\
+    Sample & Max \(\mu_{\mathrm{r}}\) & Min \(\mu_{\mathrm{r}}\) & Power loss per unit area (\si{\watt\per\metre\cubed}) \\
     \midrule
-    \(B\) range & 2.92 & 0.00034 & T \\
-    \(H\) range & \(5.61\times 10^{4}\) & 31 & A/m \\
-    Loop area (absolute) & \(2.76\times 10^{4}\) & 8.2 & T·A/m \\
-    Maximum \(\mu_{\mathrm{r}}\) (numeric gradient) & 123 & 4.5 & — \\
-    Minimum \(\mu_{\mathrm{r}}\) (numeric gradient) & 0.00 & 0.00 & — \\
-    Tail slope (min) & \(2.22\times 10^{-6}\) & \(2.4\times 10^{-7}\) & T/A/m \\
-    Tail slope (max) & \(1.16\times 10^{-4}\) & \(2.2\times 10^{-8}\) & T/A/m \\
-    RMS \(B\) residual & 0.0149 & 0.000013 & T \\
+    Mild steel & 123 & 14.0 & \(1.38\times 10^{6}\) \\
+    Transformer iron & 332 & 13.9 & \(4.73\times 10^{5}\) \\
+    CuNi (\(10\,^\circ\mathrm{C}\)) & 7.88 & 1.35 & 4605 \\
+    CuNi (\SI{40}{\celsius}) & 1.33 & 1.33 & 6300 \\
     \bottomrule
   \end{tabular}
 \end{table}
-
-\FloatBarrier
-
-\subsubsection{Transformer iron}
-Figure~\ref{fig:transformer-raw} shows the raw transformer iron loops, which also required polynomial smoothing of the tails.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.75\linewidth]{figures/hysterysis/transformer_iron_H[-6000,6000]_BH_raw.png}
-  \caption{Raw transformer iron hysteresis loops.}
-  \label{fig:transformer-raw}
-\end{figure}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.75\linewidth]{figures/hysterysis/transformer_iron_H[-6000,6000]_BH_processed.png}
-  \caption{Transformer iron loop after polynomial tail fitting.}
-  \label{fig:transformer-fit}
-\end{figure}
-
-\begin{table}[htbp]
-  \centering
-  \caption{Transformer iron loop statistics from the polynomial-tail analysis (cells 7 and 9).}
-  \label{tab:transformer-iron-summary}
-  \begin{tabular}{lccc}
-    \toprule
-    Quantity & Value & Uncertainty & Units \\
-    \midrule
-    \(B\) range & 3.44 & 0.00068 & T \\
-    \(H\) range & \(5.61\times 10^{4}\) & 38 & A/m \\
-    Loop area (absolute) & \(9.46\times 10^{3}\) & 21 & T·A/m \\
-    Maximum \(\mu_{\mathrm{r}}\) (numeric gradient) & 332 & 4.2 & — \\
-    Minimum \(\mu_{\mathrm{r}}\) (numeric gradient) & 13.9 & 0.025 & — \\
-    Tail slope (min) & \(1.74\times 10^{-5}\) & \(3.2\times 10^{-8}\) & T/A/m \\
-    Tail slope (max) & \(3.14\times 10^{-4}\) & \(1.9\times 10^{-7}\) & T/A/m \\
-    RMS \(B\) residual & 0.0326 & 0.000013 & T \\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\FloatBarrier
-
-\subsubsection{CuNi at \(10\,^\circ\mathrm{C}\)}
-The CuNi alloy at \(10\,^\circ\mathrm{C}\) follows similar behaviour, with the raw data plotted in Figure~\ref{fig:cuni10-raw}.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.75\linewidth]{figures/hysterysis/copper_alloy_at_10_c_H[-3000,3000]_BH_raw.png}
-  \caption{Raw CuNi (\(10\,^\circ\mathrm{C}\)) hysteresis loops.}
-  \label{fig:cuni10-raw}
-\end{figure}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.75\linewidth]{figures/hysterysis/copper_alloy_at_10_c_H[-3000,3000]_BH_processed.png}
-  \caption{Polynomial-fit CuNi (\(10\,^\circ\mathrm{C}\)) loop.}
-  \label{fig:cuni10-fit}
-\end{figure}
-
-\begin{table}[htbp]
-  \centering
-  \caption{CuNi (\(10\,^\circ\mathrm{C}\)) loop statistics after polynomial tail smoothing (cell 11).}
-  \label{tab:cuni10-summary}
-  \begin{tabular}{lccc}
-    \toprule
-    Quantity & Value & Uncertainty & Units \\
-    \midrule
-    \(B\) range & 0.17 & 0.00001 & T \\
-    \(H\) range & \(5.68\times 10^{4}\) & \(1.7\times 10^{-12}\) & A/m \\
-    Loop area (absolute) & 92.1 & 0.41 & T·A/m \\
-    Maximum \(\mu_{\mathrm{r}}\) (numeric gradient) & 7.88 & 0.0023 & — \\
-    Minimum \(\mu_{\mathrm{r}}\) (numeric gradient) & 1.35 & 0.0037 & — \\
-    Tail slope (min) & \(1.28\times 10^{-6}\) & \(1.3\times 10^{-7}\) & T/A/m \\
-    Tail slope (max) & \(2.19\times 10^{-5}\) & \(5.6\times 10^{-8}\) & T/A/m \\
-    RMS \(B\) residual & 0.002 & 0.0000013 & T \\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\FloatBarrier
-
-\subsubsection{CuNi at \SI{40}{\celsius}}
-Heating the CuNi sample to \SI{40}{\celsius} suppresses the hysteresis, leaving a near-linear \(B(H)\) response (Figure~\ref{fig:cuni40-raw}). A linear regression therefore replaced the polynomial tail fits for this dataset.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.75\linewidth]{figures/hysterysis/copper_alloy_above_40_c_linear_BH_raw_linear.png}
-  \caption{Raw CuNi (\SI{40}{\celsius}) data showing the predominantly linear response.}
-  \label{fig:cuni40-raw}
-\end{figure}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.75\linewidth]{figures/hysterysis/copper_alloy_above_40_c_linear_BH_linear_fit.png}
-  \caption{Linear regression for the CuNi (\SI{40}{\celsius}) run.}
-  \label{fig:cuni40-fit}
-\end{figure}
-
-\begin{table}[htbp]
-  \centering
-  \caption{Linear regression summary for CuNi at \SI{40}{\celsius} (cell 13).}
-  \label{tab:cuni40-summary}
-  \begin{tabular}{lccc}
-    \toprule
-    Quantity & Value & Uncertainty & Units \\
-    \midrule
-    \(B\) range & 0.0954 & 0.00011 & T \\
-    \(H\) range & \(5.56\times 10^{4}\) & 19 & A/m \\
-    Slope \(dB/dH\) & \(1.67\times 10^{-6}\) & \(3.36\times 10^{-10}\) & T/A/m \\
-    Intercept \(B_0\) & 0.00108 & \(6.58\times 10^{-6}\) & T \\
-    Relative \(\mu_{\mathrm{r}}\) (linear fit) & 1.33 & \(7.2\times 10^{-5}\) & — \\
-    Loop area & 126 & 2.4 & T·A/m \\
-    RMS \(B\) residual & 0.0013 & 0.0000017 & T \\
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\FloatBarrier
-
-For all samples the raw loops and the fitted/regressed curves feed into the final discussion of permeability versus temperature. The figures above preserve the unaltered data, while the smoothed loops and regressions provide the numerical input used later in the report.
+$\\$
+Comparing the samples, transformer iron has the largest maximum permeability (\(\mu_{r,\text{max}}\approx 332\)) 
+and the smallest hysteresis loss (\(\sim5\times10^{5}\,\mathrm{W\,m^{-3}}\)), making it the most suitable transformer-core 
+material among those tested. Mild steel also has a relatively high \(\mu_r\) but suffers from much larger hysteresis losses. 
+The CuNi alloy has much lower \(\mu_r\) and loss; at \(10\,^\circ\mathrm{C}\) it shows a small hysteresis loop, while 
+by \(40\,^\circ\mathrm{C}\) it behaves almost linearly with \(\mu_r\approx1.3\), i.e. only slightly different from air.

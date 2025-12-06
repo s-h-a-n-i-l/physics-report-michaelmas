@@ -1,7 +1,35 @@
+\subsection{what is hysterysis}
+Hysterysis is the phenomenon where the value of a physical property lags behind changes in the effect causing it. 
+In magnetic materials, this is observed as a lag between the magnetisation of the material and the external magnetic 
+field applied to it. This results in a hysteresis loop when plotting magnetic flux density \(B\) against magnetic field 
+strength \(H\).
+there are 3 key points on the hysterysis loop these are shown in Figure \ref{fig:labled_hysterysis_loop}.
+\begin{itemize}
+    \item \textbf{(A) Saturation magnetisation} ($B_{sat}$): This is the maximum magnetic flux density that the material can achieve. 
+    Beyond this point, increasing the external magnetic field \(H\) does not significantly increase \(B\).
+    \item \textbf{(B) Remanent magnetisation} ($B_r$): This is the magnetic flux density that remains in the material when the external magnetic field \(H\) is reduced to zero.
+    \item \textbf{(C) Coercive field} ($H_c$): This is the magnitude of the reverse magnetic field that must be applied to reduce the magnetic flux density \(B\) to zero after the material has been magnetised to saturation.
+\end{itemize}
+$\\$
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../report/figures/labled HysteresisLoop.png}
+    \caption{Labeled hysterysis loop \cite{labled_hysterysis_loop}.}
+    \label{fig:labled_hysterysis_loop}
+\end{figure}
+$\\$
+Hysterysis is caused by the magnetic domains within the material. 
+When an external magnetic field is applied, these domains tend to align with the field, 
+increasing the overall magnetisation of the material. However, due to imperfections in the material and 
+interactions between domains, they do not realign instantaneously. This time delay is visible as when the external field is changed, 
+the magnetic domain are miss aligned and have to absorb energy to realign themselves causing energy loss in the form of heat.
+$\\$
+\FloatBarrier
+\subsection{workings of a transformer}
 The magnetising field $H$ inside a solenoid is given by
 \begin{equation}
     H = \frac{n I}{L}
-    \label{H eqn}
+    \label{eq:H-field}
 \end{equation}
 Where $n$ is the number of turns, $I$ the current, and L the solenoid length.
 $\\$
@@ -39,6 +67,7 @@ These B and H values cannot be measured directly. But if you arrange 2 solenoids
     \caption{Interlinked solenoids \cite{transformer_coils}.}
     \label{fig:transformer_coils}
 \end{figure}
+\FloatBarrier
 $\\$
 the variance of the magnetic field in one (the primary solenoid) results in an induced ${emf}$ in the other coil. This is given by Faraday's law of induction:
 
@@ -75,8 +104,26 @@ $\\$
 Then through the use of an integrator circuit we can let $V_{out} = -\frac {1}{R_i C} \int \mathcal{E} dt$ and then calculate B using: 
 \begin{equation}
     B = - \frac {R_iC}{N_s A_s} V_{out}
+    \label{eq:B-from-integrator}
 \end{equation}
 $\\$
 \noindent
-Our loop allows us to calculate the energy loss per cycle from the area under the $B$-$H$ curve and the $\mu_r$ 
-values at different points. In this case, $\mu_r =\frac{1}{\mu_0} \frac{\partial B}{\partial H}$ as linear dependence is assumed in the localised region.
+Our loop allows us to calculate the energy loss per unit volume per cycle from the area under the $B$-$H$ curve.
+
+\begin{equation}
+  \frac{P_{\text{loss}}}{V}
+  = f \int H\,\mathrm{d}B ,
+\end{equation}
+\noindent
+Where $f$ is the frequency of the applied magnetic field.
+$\\$
+This power loss is mainly due to two effects: hysteresis loss and eddy current loss.
+Hysteresis loss is the energy dissipated due to the lagging of the magnetic domains behind 
+the applied field, while eddy current loss is due to circulating currents induced in the material 
+by the changing magnetic field.
+$\\$$\\$
+Further, $\mu_r$ values at different points on the curve can be calculated as linear dependence is assumed in the localised region.
+
+\begin{equation}
+    \mu_r = \frac{1}{\mu_0} \frac{dB}{dH}
+\end{equation}
