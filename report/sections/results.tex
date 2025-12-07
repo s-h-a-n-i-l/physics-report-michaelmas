@@ -19,7 +19,7 @@ are used in the tables below.
 $\\$
 \FloatBarrier
 
-\begin{table}[htbp]
+\begin{table}[H]
   \centering
   \caption{Nominal sample dimensions and cross-sectional areas used to convert the voltage measurements into magnetic quantities.}
   \label{tab:sample-measurements}
@@ -54,7 +54,7 @@ modelled by \(B = \mu_0 \mu_{\mathrm{r}} H\), and the apparent relative permeabi
 error in the fitted line does not account for this offset, so the discrepancy is 
 interpreted as a systematic error possibly due to parasitic capacitance.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{"figures/air plot.png"}
   \caption{Linear \(B(H)\) response obtained from the air control experiment.}
@@ -87,7 +87,7 @@ $\\$
 \subsubsection{Mild steel}
 Figure~\ref{fig:mild-steel-raw} shows the raw hysteresis data for the mild steel sample.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{figures/hysteresis/mild_steel_H[-19000,19000]_BH_raw.png}
   \caption{Raw mild steel hysteresis loops.}
@@ -96,7 +96,7 @@ Figure~\ref{fig:mild-steel-raw} shows the raw hysteresis data for the mild steel
 $\\$
 After applying the fifth-order polynomial fit to the tails, we obtained the smoother loop shown in Figure~\ref{fig:mild-steel-fit}. 
 $\\$
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{figures/hysteresis/mild_steel_H[-19000,19000]_BH_processed.png}
   \caption{Mild steel hysteresis loop after polynomial tail fitting.}
@@ -106,9 +106,9 @@ $\\$
 The processed loop ($Figure~\ref{fig:mild-steel-fit}$) shows a relatively wide hysteresis curve with a saturation flux density of around 1.4T and a coercive field in the order of $10^3 \, \mathrm{Am}^{-1}$.
 $\\$
 $\\$
-\begin{table}[htbp]
+\begin{table}[H]
   \centering
-  \caption{Mild steel loop statistics from the polynomial-tail analysis (cell 10 of the notebook).}
+  \caption{Mild steel loop statistics from the polynomial-tail analysis.}
   \label{tab:mild-steel-summary}
   \begin{tabular}{lccc}
     \toprule
@@ -128,14 +128,14 @@ $\\$
 \subsubsection{Transformer iron}
 Figure~\ref{fig:transformer-raw} shows the raw transformer iron loops, which also required polynomial smoothing of the tails.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{figures/hysteresis/transformer_iron_H[-6000,6000]_BH_raw.png}
   \caption{Raw transformer iron hysteresis loops.}
   \label{fig:transformer-raw}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{figures/hysteresis/transformer_iron_H[-6000,6000]_BH_processed.png}
   \caption{Transformer iron loop after polynomial tail fitting.}
@@ -144,9 +144,9 @@ Figure~\ref{fig:transformer-raw} shows the raw transformer iron loops, which als
 $\\$
 The transformer iron loop (Figure~\ref{fig:transformer-fit}) is narrower and steeper in the central region than for mild steel, with a similar saturation flux density but a smaller coercive field.
 $\\$
-\begin{table}[htbp]
+\begin{table}[H]
   \centering
-  \caption{Transformer iron loop statistics from the polynomial-tail analysis (cells 7 and 9).}
+  \caption{Transformer iron loop statistics from the polynomial-tail analysis.}
   \label{tab:transformer-iron-summary}
   \begin{tabular}{lccc}
     \toprule
@@ -166,14 +166,14 @@ $\\$
 \subsubsection{CuNi at \(10\,^\circ\mathrm{C}\)}
 The CuNi alloy at \(10\,^\circ\mathrm{C}\) follows similar behaviour, with the raw data plotted in Figure~\ref{fig:cuni10-raw}.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{figures/hysteresis/copper_alloy_at_10_c_H[-3000,3000]_BH_raw.png}
   \caption{Raw CuNi (\(10\,^\circ\mathrm{C}\)) hysteresis loops.}
   \label{fig:cuni10-raw}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{figures/hysteresis/copper_alloy_at_10_c_H[-3000,3000]_BH_processed.png}
   \caption{Polynomial-fit CuNi (\(10\,^\circ\mathrm{C}\)) loop.}
@@ -183,9 +183,9 @@ $\\$
 At $10\,^\circ\mathrm{C}$ the CuNi alloy still shows a small but clear hysteresis loop (Figure~\ref{fig:cuni10-fit}), but the \(B\) range of only 0.17 $\pm$ 0.01 T 
 is about 20 times smaller than for transformer iron, and the loop is much narrower in \(H\).
 $\\$
-\begin{table}[htbp]
+\begin{table}[H]
   \centering
-  \caption{CuNi (\(10\,^\circ\mathrm{C}\)) loop statistics after polynomial tail smoothing (cell 11).}
+  \caption{CuNi (\(10\,^\circ\mathrm{C}\)) loop statistics after polynomial tail smoothing.}
   \label{tab:cuni10-summary}
   \begin{tabular}{lccc}
     \toprule
@@ -205,14 +205,14 @@ $\\$
 \subsubsection{CuNi above \SI{40}{\celsius}}
 Heating the CuNi sample above \SI{40}{\celsius} suppresses the hysteresis, leaving a near-linear \(B(H)\) response (Figure~\ref{fig:cuni40-raw}). A linear regression therefore replaced the polynomial tail fits for this dataset.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{figures/hysteresis/copper_alloy_above_40_c_linear_BH_raw_linear.png}
   \caption{Raw CuNi (above \SI{40}{\celsius}) data showing the predominantly linear response.}
   \label{fig:cuni40-raw}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{figures/hysteresis/copper_alloy_above_40_c_linear_BH_linear_fit.png}
   \caption{Linear regression for the CuNi (above \SI{40}{\celsius}) run.}
@@ -226,9 +226,9 @@ $\\$
 $\\$
 This is consistent with the alloy being just above its Curie temperature, where the material is only weakly paramagnetic and shows negligible hysteresis.
 
-\begin{table}[htbp]
+\begin{table}[H]
   \centering
-  \caption{Linear regression summary for CuNi above \SI{40}{\celsius} (cell 13).}
+  \caption{Linear regression summary for CuNi above \SI{40}{\celsius}.}
   \label{tab:cuni40-summary}
   \begin{tabular}{lccc}
     \toprule
@@ -247,7 +247,7 @@ This is consistent with the alloy being just above its Curie temperature, where 
 
 \subsection{Summary of results}
 
-\begin{table}[htbp]
+\begin{table}[H]
   \centering
   \caption{Summary of the collected data sets.}
   \label{tab:data-sets}
@@ -268,21 +268,22 @@ This is consistent with the alloy being just above its Curie temperature, where 
 
 Table~\ref{tab:summary-metrics} collects each sample’s key \(B(H)\) metrics, peak and minimum \(\mu_{\mathrm{r}}\), and power loss per unit volume so the datasets can be compared directly.
 
-\begin{table}[htbp]
-  \centering
-  \caption{Aggregated magnetic metrics across the measured trials.}
-  \label{tab:summary-metrics}
-  \begin{tabular}{lccccc}
-    \toprule
-    Sample & \(B\) range (\si{\tesla}) & \(H\) range (\si{\ampere\metre^{-1}}) & Max \(\mu_{\mathrm{r}}\) & Min \(\mu_{\mathrm{r}}\) & Power loss per unit volume (\si{\watt\per\metre\cubed}) \\
-    \midrule
-    Mild steel & 2.92 & \(5.61\times 10^{4}\) & 123 & 14.0 & \(1.38\times 10^{6}\) \\
-    Transformer iron & 3.44 & \(5.61\times 10^{4}\) & 332 & 13.9 & \(4.73\times 10^{5}\) \\
-    CuNi (\(10\,^\circ\mathrm{C}\)) & 0.17 & \(5.68\times 10^{4}\) & 7.88 & 1.35 & 4605 \\
-    CuNi (above \SI{40}{\celsius}) & 0.0954 & \(5.56\times 10^{4}\) & 1.33 & 1.33 & negligible \\
-    \bottomrule
-  \end{tabular}
-\end{table}
+	\begin{table}[H]
+	  \centering
+	  \caption{Aggregated magnetic metrics across the measured trials.}
+	  \label{tab:summary-metrics}
+	  \begin{tabular}{lccccc}
+	    \toprule
+	    Sample & \(B\) range & \(H\) range & Max \(\mu_{\mathrm{r}}\) & Min \(\mu_{\mathrm{r}}\) & Power loss per unit volume \\
+	           & (\si{\tesla}) & (\si{\ampere\metre^{-1}}) &  &  & (\si{\watt\per\metre\cubed}) \\
+	    \midrule
+	    Mild steel & 2.92 & \(5.61\times 10^{4}\) & 123 & 14.0 & \(1.38\times 10^{6}\) \\
+	    Transformer iron & 3.44 & \(5.61\times 10^{4}\) & 332 & 13.9 & \(4.73\times 10^{5}\) \\
+	    CuNi (\(10\,^\circ\mathrm{C}\)) & 0.17 & \(5.68\times 10^{4}\) & 7.88 & 1.35 & 4605 \\
+	    CuNi (above \SI{40}{\celsius}) & 0.0954 & \(5.56\times 10^{4}\) & 1.33 & 1.33 & negligible \\
+	    \bottomrule
+	  \end{tabular}
+	\end{table}
 $\\$
 Comparing the samples, transformer iron has the largest maximum permeability (\(\mu_{r,\text{max}}\approx 332\)) 
 and the smallest hysteresis loss (\(\sim5\times10^{5}\,\mathrm{W\,m^{-3}}\)), making it the most suitable transformer-core 
