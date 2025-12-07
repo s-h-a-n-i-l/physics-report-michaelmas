@@ -264,20 +264,20 @@ This is consistent with the alloy being just above its Curie temperature, where 
 
 \FloatBarrier
 
-Table~\ref{tab:summary-metrics} collects each sample’s peak and minimum \(\mu_{\mathrm{r}}\) together with the power loss per unit area so the datasets can be compared directly.
+Table~\ref{tab:summary-metrics} collects each sample’s key \(B(H)\) metrics, peak and minimum \(\mu_{\mathrm{r}}\), and power loss per unit area so the datasets can be compared directly.
 
 \begin{table}[htbp]
   \centering
   \caption{Aggregated magnetic metrics across the measured trials.}
   \label{tab:summary-metrics}
-  \begin{tabular}{lccc}
+  \begin{tabular}{lccccc}
     \toprule
-    Sample & Max \(\mu_{\mathrm{r}}\) & Min \(\mu_{\mathrm{r}}\) & Power loss per unit area (\si{\watt\per\metre\cubed}) \\
+    Sample & \(B\) range (\si{\tesla}) & \(H\) range (\si{\ampere\metre^{-1}}) & Max \(\mu_{\mathrm{r}}\) & Min \(\mu_{\mathrm{r}}\) & Power loss per unit area (\si{\watt\per\metre\cubed}) \\
     \midrule
-    Mild steel & 123 & 14.0 & \(1.38\times 10^{6}\) \\
-    Transformer iron & 332 & 13.9 & \(4.73\times 10^{5}\) \\
-    CuNi (\(10\,^\circ\mathrm{C}\)) & 7.88 & 1.35 & 4605 \\
-    CuNi (\SI{40}{\celsius}) & 1.33 & 1.33 & 6300 \\
+    Mild steel & 2.92 & \(5.61\times 10^{4}\) & 123 & 14.0 & \(1.38\times 10^{6}\) \\
+    Transformer iron & 3.44 & \(5.61\times 10^{4}\) & 332 & 13.9 & \(4.73\times 10^{5}\) \\
+    CuNi (\(10\,^\circ\mathrm{C}\)) & 0.17 & \(5.68\times 10^{4}\) & 7.88 & 1.35 & 4605 \\
+    CuNi (\SI{40}{\celsius}) & 0.0954 & \(5.56\times 10^{4}\) & 1.33 & 1.33 & negligible \\
     \bottomrule
   \end{tabular}
 \end{table}

@@ -1,0 +1,68 @@
+\subsection{Recap of key trends}
+The experiment aimed to use the $B$--$H$ curves of different materials to quantify which would be the best for use as the core of a transformer iron. This was done by comparing their maximum relative permeability $\mu_{\mathrm{r,max}}$, power loss per cycle, and other associated factors calculated from their $B$--$H$ curves. The relative permeabilities indicated the ranking $\text{transformer iron} > \text{mild steel} \gg \text{CuNi}$, while the energy loss per cycle followed $\text{transformer iron} < \text{mild steel} \ll \text{CuNi}$. Both trends are coherent with the behaviour expected from the literature.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Summary of key magnetic metrics extracted from the $B$--$H$ loops. Where exact data were unavailable, placeholders are provided for future insertion.}
+  \label{tab:key-trends}
+  \begin{tabular}{lccc}
+    \toprule
+    Material & $\mu_{\mathrm{r,max}}$ & Power loss per cycle (\si{\watt\per\metre\cubed}) & Notes\\
+    \midrule
+    Transformer iron & 332 & $\text{[placeholder: power loss value]}$ & Narrow, steep loop\\
+    Mild steel & 123 & $\text{[placeholder: power loss value]}$ & Wider hysteresis\\
+    CuNi (\SI{10}{\celsius}) & 7.9 & $4.6\times10^{3}$ & Very low loss but low $\mu_{\mathrm{r}}$\\
+    CuNi (\SI{40}{\celsius}) & 1.33 & $\text{[negligible]}$ & Loop collapses\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Which core is best and why?}
+An ideal core has a large $\mu_{\mathrm{r}}$ in its working region and a low energy loss per cycle. A high $\mu_{\mathrm{r}}$ allows the core to efficiently produce a high magnetic flux density, reducing magnetising current for a given $H$. Transformer iron is therefore the ideal choice: it has $\mu_{\mathrm{r,max}} \approx 332$, roughly three times that of mild steel (\(\approx 123\)), and a much smaller power loss per unit volume (placeholder values to be inserted once the dataset is finalised). The narrower and steeper loop expected for transformer cores is illustrated schematically in Figure~\ref{fig:transformer-schematic}, reflecting rapid domain alignment and a large working range.
+
+
+
+Within the accuracy of this experiment, transformer iron is clearly the most suitable of the ferromagnetic materials. Mild steel would incur significantly larger hysteresis losses under similar magnetising conditions. At \SI{10}{\celsius}, CuNi has $\mu_{\mathrm{r,max}} \approx 8$ and very low losses, but the low permeability would require much higher $H$ to achieve the same $B$, making it a poor transformer core material.
+
+\subsection{Temperature dependence and Curie-like behaviour of CuNi}
+Beyond the low $\mu_{\mathrm{r}}$ value, the CuNi alloy shows a pronounced temperature dependence. Prolonged transformer use would heat the core, and as shown by the measurements, a shift from \SI{10}{\celsius} to \SI{40}{\celsius} dramatically changes the magnetic properties:
+\begin{itemize}
+  \item \SI{10}{\celsius}: small but clear hysteresis loop; $B$-range $\approx 0.17\,$\si{\tesla}; $\mu_{\mathrm{r,max}} \approx 7.9$; power loss $\approx 4.6\times10^{3}\,\si{\watt\per\metre\cubed}$.
+  \item \SI{40}{\celsius}: loop collapses to a near straight line; almost no hysteresis; $\mu_{\mathrm{r}} \approx 1.33$ nearly constant over the measured range.
+\end{itemize}
+This behaviour reflects the alloy approaching or exceeding its Curie temperature: above this point the thermal vibration of atoms disrupts the alignment of magnetic domains, so the material becomes effectively paramagnetic.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Temperature dependence of CuNi hysteresis metrics. Placeholders are provided where more precise values are needed.}
+  \label{tab:cuni-temperature}
+  \begin{tabular}{lccc}
+    \toprule
+    Temperature (\si{\celsius}) & $B$-range (\si{\tesla}) & $\mu_{\mathrm{r,max}}$ & Power loss (\si{\watt\per\metre\cubed}) \\
+    \midrule
+    10 & 0.17 & 7.9 & $4.6\times10^{3}$ \\
+    40 & $\text{[placeholder: \ensuremath{B}-range]}$ & 1.33 & $\text{[placeholder: negligible loss]}$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+\subsection{Uncertainties, limitations, and their impact}
+Several systematic effects dominated the uncertainty budget:
+\begin{itemize}
+  \item \textbf{Integrator gain}: measured gain (\(\approx 1.37\)) versus theoretical (\(\approx 0.99\)) differed by \(\sim 40\%\), propagating directly into all $B$ and $\mu_{\mathrm{r}}$ values due to resistance and winding-count uncertainties.
+  \item \textbf{Geometry / area assumptions}: the sample did not fill the coil, so assuming flux is dominated by $A_{\text{sample}}$ underestimates $B_{\text{sample}}$ and biases $\mu_{\mathrm{r}}$ low.
+  \item \textbf{Finite frequency and parasitic effects}: the integrator was designed for \SI{50}{\hertz}, but frequency-dependent response, square-wave calibration harmonics, parasitic capacitance, and coil resistance distort waveforms.
+  \item \textbf{Temperature measurement for CuNi}: sample temperatures during hysteresis runs were not directly measured; only approximate starting values (\(\approx\SI{10}{\celsius}\) and \(>\SI{40}{\celsius}\)) were noted, and the sample likely drifted between bath and measurement.
+\end{itemize}
+These factors likely introduce multiplicative offsets to the raw measurements, leading to unreliable absolute property values. However, because all materials experienced the same systematic errors, the relative rankings should be robust.
+
+\subsection{Possible improvements and future work}
+Future experiments could reduce systematic uncertainties and map the material behaviour more completely by:
+\begin{itemize}
+  \item Calibrating the integrator with a pure sinusoid at \SI{50}{\hertz} and known amplitude rather than a square wave with harmonics.
+  \item Using samples that fill the entire coil cross-section to minimise flux fringing and geometry errors.
+  \item Measuring sample temperature directly (e.g., a thermocouple attached to the rod) and acquiring hysteresis loops across a finer temperature grid to capture the CuNi transition.
+  \item Recording additional datasets at different frequencies to study the scaling of eddy-current losses with $f$.
+\end{itemize}
+These improvements would decrease systematic uncertainty and clarify how each material's intrinsic properties affect transformer-core suitability.
