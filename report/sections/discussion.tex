@@ -3,10 +3,10 @@ The experiment aimed to use the $B$--$H$ curves of different materials to quanti
 the core of a transformer iron. This was done by comparing their maximum relative permeability $\mu_{\mathrm{r,max}}$, power 
 loss per cycle, and other associated factors calculated from their $B$--$H$ curves.
 $\\$
-The relative permeabilities indicated the ranking: 
+The relative permeabilities indicated the ranking:
 $\\ \text{transformer iron} > \text{mild steel} \gg \text{CuNi} \\$
-while the energy loss per cycle followed :
-$\\ \text{mild steel} > \text{transformer iron}  \gg \text{CuNi} .\\$ 
+While the energy loss per cycle followed:
+$\\ \text{mild steel} > \text{transformer iron} \gg \text{CuNi} .\\$ 
 Both trends are coherent with the behaviour expected from the literature.
 
 \begin{table}[htbp]
@@ -20,12 +20,12 @@ Both trends are coherent with the behaviour expected from the literature.
     Transformer iron & 332 & \(4.73\times 10^{5}\) & Narrow, steep loop\\
     Mild steel & 123 & \(1.38\times 10^{6}\) & Wider hysteresis\\
     CuNi (\SI{10}{\celsius}) & 7.9 & $4.6\times10^{3}$ & Very low loss but low $\mu_{\mathrm{r}}$\\
-    CuNi (\SI{40}{\celsius}) & 1.33 & negligible & Loop collapses\\
+    CuNi (above \SI{40}{\celsius}) & 1.33 & negligible & Loop collapses\\
     \bottomrule
   \end{tabular}
 \end{table}
 \subsection{Air control results}
-For air we expect $\mu_{\mathrm{r}} \approx 1$ and a straight line through the origin (Eq.~\eqref{eq:air-ideal}). 
+As described in Section~\ref{sec:air-calibration}, for air we expect $\mu_{\mathrm{r}} \approx 1$ and a straight line through the origin (Eq.~\eqref{eq:air-ideal}). 
 The air-control fit shows a residual intercept (Eq.~\eqref{eq:air-fit-line}) and yields a measured 
 $\mu_{\mathrm{r}} = 0.37 \pm 0.03$ (Eq.~\eqref{eq:air-measured}). This shows the apparatus is systematically mis-calibrated.
 
@@ -33,21 +33,29 @@ $\mu_{\mathrm{r}} = 0.37 \pm 0.03$ (Eq.~\eqref{eq:air-measured}). This shows the
 An ideal core has a large $\mu_{\mathrm{r}}$ in its working region and a low energy loss per cycle. A high $\mu_{\mathrm{r}}$ 
 allows the core to efficiently produce a high magnetic flux density, reducing magnetising current for a given $H$. Transformer 
 iron is therefore the ideal choice: it has $\mu_{\mathrm{r,max}} \approx 332$, roughly three times that of mild steel (\(\approx 123\)), 
-and a much smaller power loss per unit volume (\(4.73\times10^{5}\,\si{\watt\per\metre\cubed}\)). The narrower and steeper loop as is expected 
+and a much smaller power loss per unit volume (\(4.73\times10^{5}\,\si{\watt\per\metre\cubed}\)). The narrower and steeper loop expected 
 for transformer cores is illustrated schematically in Figure~\ref{fig:transformer-fit}, reflecting rapid domain alignment and a large 
-working range.Within the accuracy of this experiment, transformer iron is clearly the most suitable of the ferromagnetic materials. Mild steel would incur significantly larger hysteresis losses under similar magnetising conditions. 
+working range. Within the accuracy of this experiment, transformer iron is clearly the most suitable of the ferromagnetic materials. Mild steel would incur significantly larger hysteresis losses under similar magnetising conditions.
 $\\$
-Now comparing it to the CuNi alloy, at \SI{10}{\celsius}, CuNi has $\mu_{\mathrm{r,max}} \approx 8$ and very low losses, but the low permeability would require much 
+Now, comparing it to the CuNi alloy at \SI{10}{\celsius}, CuNi has $\mu_{\mathrm{r,max}} \approx 8$ and very low losses, but the low permeability would require much 
 higher $H$ to achieve the same $B$, making it a poor transformer core material.
-
+\subsection{Minimum $\mu_r$ values for transformer cores}
+the minimum $\mu_r$ values seen were:
+\begin{itemize}
+  \item Transformer iron: $\mu_{\mathrm{r,max}} \approx 13.9$
+  \item Mild steel: $\mu_{\mathrm{r,max}} \approx 14.0$
+  \item CuNi (\SI{10}{\celsius}): $\mu_{\mathrm{r,max}} \approx 1.35$
+\end{itemize}
+The $\mu_r$ values are expected to approach 1 as $H$ increases, since the domains become fully aligned. the large $\mu_r$ values seen show that the AC current switches before saturation is reached.
 \subsection{Temperature dependence and Curie-like behaviour of CuNi}
-Beyond the low $\mu_{\mathrm{r}}$ value, there are issues with the temperature range of the CuNi alloy. Prolonged transformer use would 
-heat the core, exceeding the 40\si{\celsius} tested in figure~\ref{fig:cuni40-fit}).
 $\\$
-a shift from \SI{10}{\celsius} to \SI{40}{\celsius} is shown to dramatically changes the magnetic properties:
+Beyond the low $\mu_{\mathrm{r}}$ value, there are issues with the temperature range of the CuNi alloy. Prolonged transformer use would 
+heat the core, exceeding the above-\SI{40}{\celsius} condition tested in Figure~\ref{fig:cuni40-fit}.
+$\\$
+A shift from \SI{10}{\celsius} to above \SI{40}{\celsius} is shown to dramatically change the magnetic properties:
 \begin{itemize}
   \item \SI{10}{\celsius}: small but clear hysteresis loop; $B$-range $\approx 0.17\,$\si{\tesla}; $\mu_{\mathrm{r,max}} \approx 7.9$; power loss $\approx 4.6\times10^{3}\,\si{\watt\per\metre\cubed}$.
-  \item \SI{40}{\celsius}: loop collapses to a straight line; almost no hysteresis; $\mu_{\mathrm{r}} \approx 1.33$ nearly constant over the measured range.
+  \item Above \SI{40}{\celsius}: loop collapses to a straight line; almost no hysteresis; $\mu_{\mathrm{r}} \approx 1.33$ nearly constant over the measured range.
 \end{itemize}
 This behaviour reflects the alloy approaching or exceeding its Curie temperature. This is the point at which the thermal vibration of atoms disrupts the alignment of magnetic domains, so the material becomes effectively paramagnetic.
 
@@ -60,7 +68,7 @@ This behaviour reflects the alloy approaching or exceeding its Curie temperature
     Temperature (\si{\celsius}) & $B$-range (\si{\tesla}) & $\mu_{\mathrm{r,max}}$ & Power loss (\si{\watt\per\metre\cubed}) \\
     \midrule
     10 & 0.17 & 7.9 & $4.6\times10^{3}$ \\
-    40 & 0.0954 & 1.33 & negligible \\
+    above 40 & 0.0954 & 1.33 & negligible \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -80,7 +88,7 @@ In addition, there were a number of key $\textbf{systematic errors}$:
   \item \textbf{Finite frequency and parasitic effects}: the integrator was designed for \SI{50}{\hertz}, but frequency-dependent response, square-wave calibration harmonics, parasitic capacitance, and coil resistance distort waveforms.
   \item \textbf{Temperature measurement for CuNi}: sample temperatures during hysteresis runs were not directly measured; only approximate starting values (\(\approx\SI{10}{\celsius}\) and \(>\SI{40}{\celsius}\)) were noted, and the sample likely drifted between bath and measurement.
 \end{itemize}
-All these effects result in the raw measurements being off but a multiplicative amount. This has lead to unreliable calculated value for the properties of the materials. However all the materials were subject to the same systematic errors and thus the relative measurements and thus ranking of the materials should hold up to scrutiny.
+All these effects result in the raw measurements being off by a multiplicative amount. This has led to unreliable calculated values for the properties of the materials. However, all the materials were subject to the same systematic errors and thus the relative measurements and the resulting ranking of the materials should hold up to scrutiny.
 \subsection{Possible improvements and future work}
 Future experiments could reduce systematic uncertainties and map the material behaviour more completely by:
 \begin{itemize}

@@ -1,41 +1,40 @@
-\subsection{what is hysterysis}
-Hysterysis is the phenomenon where the value of a physical property lags behind changes in the effect causing it. 
-In magnetic materials, this is observed as a lag between the magnetisation of the material and the external magnetic 
-field applied to it. This results in a hysteresis loop when plotting magnetic flux density \(B\) against magnetic field 
+\subsection{What Is Hysteresis}
+Hysteresis is the phenomenon where the value of a physical property lags behind changes in the effect causing it.
+In magnetic materials, this is observed as a lag between the magnetisation of the material and the external magnetic
+field applied to it. This results in a hysteresis loop when plotting magnetic flux density \(B\) against magnetic field
 strength \(H\).
-there are 3 key points on the hysterysis loop these are shown in Figure \ref{fig:labled_hysterysis_loop}.
+There are three key points on the hysteresis loop; these are shown in Figure \ref{fig:labelled_hysteresis_loop}.
 \begin{itemize}
-    \item \textbf{(A) Saturation magnetisation} ($B_{sat}$): This is the maximum magnetic flux density that the material can achieve. 
-    Beyond this point, increasing the external magnetic field \(H\) does not significantly increase \(B\).
+    \item \textbf{(A) Saturation magnetisation} ($B_{sat}$): This is the maximum magnetic flux density that the material can achieve.
+    Beyond this point, increasing the external magnetic field \(H\) does not significantly increase \(B\) as the magnetic domains are fully aligned and thus $\mu_r \rightarrow 1$ .
     \item \textbf{(B) Remanent magnetisation} ($B_r$): This is the magnetic flux density that remains in the material when the external magnetic field \(H\) is reduced to zero.
     \item \textbf{(C) Coercive field} ($H_c$): This is the magnitude of the reverse magnetic field that must be applied to reduce the magnetic flux density \(B\) to zero after the material has been magnetised to saturation.
 \end{itemize}
 $\\$
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{../report/figures/labled HysteresisLoop.png}
-    \caption{Labeled hysterysis loop \cite{labled_hysterysis_loop}.}
-    \label{fig:labled_hysterysis_loop}
+    \includegraphics[width=0.6\textwidth]{../report/figures/labelled HysteresisLoop.png}
+    \caption{Labelled hysteresis loop \cite{labelled_hysteresis_loop}.}
+    \label{fig:labelled_hysteresis_loop}
 \end{figure}
 $\\$
-Hysterysis is caused by the magnetic domains within the material. 
-When an external magnetic field is applied, these domains tend to align with the field, 
-increasing the overall magnetisation of the material. However, due to imperfections in the material and 
-interactions between domains, they do not realign instantaneously. This time delay is visible as when the external field is changed, 
-the magnetic domain are miss aligned and have to absorb energy to realign themselves causing energy loss in the form of heat.
+Hysteresis is caused by the magnetic domains within the material.
+When an external magnetic field is applied, these domains tend to align with the field,
+increasing the overall magnetisation of the material. However, due to imperfections in the material and
+interactions between domains, they do not realign instantaneously. This time delay is visible because when the external field is changed,
+the magnetic domains are misaligned and have to absorb energy to realign themselves, causing energy loss in the form of heat.
 $\\$
 \FloatBarrier
-\subsection{workings of a transformer}
+\subsection{Transformer Operation}
 The magnetising field $H$ inside a solenoid is given by
 \begin{equation}
     H = \frac{n I}{L}
     \label{eq:H-field}
 \end{equation}
-Where $n$ is the number of turns, $I$ the current, and L the solenoid length.
+Here, $n$ is the number of turns, $I$ the current, and $L$ the solenoid length.
 $\\$
-This gives rise to the magnetic flux density $B$
-For solenoids, with non-magnetic media in their core, there is a linear relationship:
-
+This gives rise to the magnetic flux density $B$.
+For solenoids with non-magnetic media in their core, there is a linear relationship:
 
 \begin{align}
 B &= \mu_0 (H + M) \\
@@ -43,33 +42,31 @@ M &= \chi H \quad \Rightarrow \quad B = \mu_0 (1 + \chi) H \\
 \mu_r &= 1 + \chi \quad \Rightarrow \quad B = \mu_0 \mu_r H \label{eq:air-ideal}
 \end{align}
 
-
-
 However, when using magnetic materials, $\mu_r$ is not a constant and so:
 \begin{equation}
     B = \mu_0 (H + M) 
 \end{equation}
-$\mu_0$ is the permeability of free space ($4\pi \times 10^{-7} \, \mathrm{H/m} \approx  1.257 \times 10^{-6} \, \mathrm{H/m}$),
+$\mu_0$ is the permeability of free space ($4\pi \times 10^{-7} \, \mathrm{H/m} \approx  1.257 \times 10^{-6} \, \mathrm{H/m}$).
 $\\$
 $\mu_r$ is the relative permeability of the material.
 $\\$
 $M$ is the magnetisation of the core material.
 $\\$
-$\chi$ is the volume magnetic susceptibility
+$\chi$ is the volume magnetic susceptibility.
 $\\$
 $\\$
-By using different materials within the centre of the solenoid different values of $mu$ are used resulting in different hysteresis loops being formed.
-These B and H values cannot be measured directly. But if you arrange 2 solenoids as in ($\textbf{\Cref{fig:transformer_coils}}$).
+By using different materials within the centre of the solenoid, different values of $\mu$ are used, resulting in different hysteresis loops being formed.
+These $B$ and $H$ values cannot be measured directly, but if you arrange two solenoids as in ($\textbf{\Cref{fig:transformer_coils}}$):
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{../report/figures/transformer images 1.png}
-    \caption{Interlinked solenoids \cite{transformer_coils}.}
+    \caption{Interlinked solenoids.}
     \label{fig:transformer_coils}
 \end{figure}
 \FloatBarrier
 $\\$
-the variance of the magnetic field in one (the primary solenoid) results in an induced ${emf}$ in the other coil. This is given by Faraday's law of induction:
+The variance of the magnetic field in one (the primary solenoid) results in an induced ${emf}$ in the other coil. This is given by Faraday's law of induction:
 
 \begin{equation}
     \mathcal{E} = - N_s \frac{d\Phi}{dt}
@@ -82,7 +79,7 @@ $N_s$ is the number of turns of coil
 And $\frac{d\Phi}{dt}$ is the rate of change of flux
 $\\$
 \noindent
-$\Phi$, the magnetic flux given by:
+$\Phi$, the magnetic flux, is given by:
 
 \begin{equation}
     \Phi = B A_s
@@ -92,7 +89,7 @@ Where $B$ is the magnetic flux density inside the coil and is provided by the pr
 of the secondary coil.
 $\\$
 \noindent
-$A_s$ is the Crossectional area of the material in the core.
+$A_s$ is the cross-sectional area of the material in the core.
 $\\$
 $\\$
 This secondary coil then allows us to calculate $B$ by integrating $\mathcal{E} = - N_s \frac{d\Phi}{dt}$ to give:
@@ -101,18 +98,19 @@ This secondary coil then allows us to calculate $B$ by integrating $\mathcal{E} 
     B = - \frac{1}{N_s A_s} \int \mathcal{E} dt
 \end{equation}
 $\\$
-Then through the use of an integrator circuit we can let $V_{out} = -\frac {1}{R_i C} \int \mathcal{E} dt$ and then calculate B using: 
+Then, through the use of an integrator circuit we can let $V_{out} = -\frac {1}{R_i C} \int \mathcal{E} dt$ and then calculate $B$ using: 
 \begin{equation}
     B = - \frac {R_iC}{N_s A_s} V_{out}
     \label{eq:B-from-integrator}
 \end{equation}
 $\\$
 \noindent
-Our loop allows us to calculate the energy loss per unit volume per cycle from the area under the $B$-$H$ curve.
+Our loop allows us to calculate the energy loss per unit volume per cycle from the area under the \(B(H)\) curve.
 
 \begin{equation}
   \frac{P_{\text{loss}}}{V}
   = f \int H\,\mathrm{d}B ,
+\label{eq:power_loss}
 \end{equation}
 \noindent
 Where $f$ is the frequency of the applied magnetic field.
@@ -126,4 +124,5 @@ Further, $\mu_r$ values at different points on the curve can be calculated as li
 
 \begin{equation}
     \mu_r = \frac{1}{\mu_0} \frac{dB}{dH}
+\label{eq:mu_r}
 \end{equation}
