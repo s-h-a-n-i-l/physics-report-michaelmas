@@ -10,9 +10,6 @@ experiment five sets of data were collected:
   \item CuNi alloy above \SI{40}{\celsius}
 \end{itemize}
 $\\$
-Transformer iron and copper above 40 were both taken twice as the initial readings did not seem to fit with the literature and were assumed to have an error in measurement. These were retaken at the end of the experiment and found to be indistinguishable and thus the initial readings were used for the data analysis.
-$\\$
-$\\$
 The transformer iron and elevated-temperature CuNi alloy datasets were each recorded twice; 
 the repeats agreed with the original measurements within the random scatter, so only the original runs 
 are used in the tables below.
@@ -37,8 +34,8 @@ $\\$
 \end{table}
 $\\$$\\$
 Twenty loops of the steady-state response were recorded for each dataset. Using Equations~\eqref{eq:H-field} and~\eqref{eq:B-from-integrator}, the 
-voltages across the \(2~\Omega\) resistor and the integrator output were converted into magnetic field strength \(H\) 
-and magnetic flux density \(B\) for the plots that follow.
+voltages across $R_p$ and the integrator output were converted into magnetic field strength 
+and magnetic flux density for the plots that follow.
 $\\$$\\$
 From the multiple recorded loops, the mean and standard deviation of key metrics were calculated and used 
 as estimates of random uncertainties. In all cases, loop-to-loop scatter was small. Larger systematic uncertainties 
@@ -50,14 +47,14 @@ the quoted error bars but are discussed qualitatively in Section $\ref{sec:discu
 The air control plot shows the expected linear response with no hysteresis, 
 since the permeability should be close to that of free space. The behaviour was 
 modelled by \(B = \mu_0 \mu_{\mathrm{r}} H\), and the apparent relative permeability 
-\(\mu_{\mathrm{r}}\) calculated from the slope is smaller than the expected value. The 
+calculated from the slope is smaller than the expected value. The 
 error in the fitted line does not account for this offset, so the discrepancy is 
 interpreted as a systematic error possibly due to parasitic capacitance.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.75\linewidth,height=0.33\textheight,keepaspectratio]{"figures/air plot.png"}
-  \caption{Linear \(B(H)\) response obtained from the air control experiment.}
+  \caption{Linear \(B-H\) response obtained from the air control experiment.}
   \label{fig:air-control-raw}
 \end{figure}
 $\\$
@@ -66,11 +63,11 @@ There is minor scatter between the loops, which is likely due to noise in the me
 low uncertainty calculated using the standard deviation between gradients and intercepts in the set of modeled loops.
 $\\$
 $\\$
-Interpreting the results from Figure~\ref{fig:air-control-raw}, the relative permeability \(\mu_{\mathrm{r}}\) was 
-calculated from the numeric gradient \(dB/dH\).
+Interpreting the results from Figure~\ref{fig:air-control-raw}, the relative permeability was 
+calculated from equation $\ref{eq:mu_r}$.
 \begin{gather}
-  \mu_{\mathrm{r}} = \frac{1}{\mu_0}\frac{dB}{dH} \\
-  y = (4.667\times 10^{-07} \pm 1.260\times 10^{-10})x + (3.816\times 10^{-04} \pm 2.511\times 10^{-06}) \label{eq:air-fit-line} \\
+  \text{Ideally: } y = \frac{dB}{dH} x \\
+  \text{In reality: }y = (4.667\times 10^{-07} \pm 1.260\times 10^{-10})x + (3.816\times 10^{-04} \pm 2.511\times 10^{-06}) \label{eq:air-fit-line} \\
   \intertext{Therefore:}
   \mu_{\mathrm{r}} = 0.37 \pm 0.03 \label{eq:air-measured}
 \end{gather}
@@ -78,7 +75,7 @@ This value is significantly lower than the expected \(\mu_{\mathrm{r}} \approx 1
 indicating a systematic error in the measurement setup.
 \subsection{Hysteresis plots}
 The 20 recorded hysteresis loops for each material were plotted individually. In all three ferromagnetic datasets, the raw 
-$B(H)$ loops show small secondary loops at large $\abs{H}$ (most clearly in transformer iron, Figure~\ref{fig:transformer-raw}).
+$B-H$ loops show small secondary loops at large $\abs{H}$ (most clearly in transformer iron, Figure~\ref{fig:transformer-raw}).
 $\\$
 To account for this, the end tails of the hysteresis loops were fitted to fifth order polynomials allowing a smooth gradient to be 
 found at the ends, allowing us to give a more stable estimate of the saturation permeability.
@@ -103,7 +100,7 @@ $\\$
   \label{fig:mild-steel-fit}
 \end{figure}
 $\\$
-The processed loop ($Figure~\ref{fig:mild-steel-fit}$) shows a relatively wide hysteresis curve with a saturation flux density of around 1.4T and a coercive field in the order of $10^3 \, \mathrm{Am}^{-1}$.
+The processed loop (Figure$~\ref{fig:mild-steel-fit}$) shows a relatively wide hysteresis curve with a saturation flux density of around 1.4T and a coercive field in the order of $10^3 \, \mathrm{Am}^{-1}$.
 $\\$
 $\\$
 \begin{table}[H]
@@ -203,7 +200,7 @@ $\\$
 \FloatBarrier
 
 \subsubsection{CuNi above \SI{40}{\celsius}}
-Heating the CuNi sample above \SI{40}{\celsius} suppresses the hysteresis, leaving a near-linear \(B(H)\) response (Figure~\ref{fig:cuni40-raw}). A linear regression therefore replaced the polynomial tail fits for this dataset.
+Heating the CuNi sample above \SI{40}{\celsius} suppresses the hysteresis, leaving a near-linear \(B-H\) response (Figure~\ref{fig:cuni40-raw}). A linear regression therefore replaced the polynomial tail fits for this dataset.
 
 \begin{figure}[H]
   \centering
@@ -266,7 +263,7 @@ This is consistent with the alloy being just above its Curie temperature, where 
 
 \FloatBarrier
 
-Table~\ref{tab:summary-metrics} collects each sample’s key \(B(H)\) metrics, peak and minimum \(\mu_{\mathrm{r}}\), and power loss per unit volume so the datasets can be compared directly.
+Table~\ref{tab:summary-metrics} collects each sample’s key \(B-H\) metrics, peak and minimum \(\mu_{\mathrm{r}}\), and power loss per unit volume so the datasets can be compared directly.
 
 	\begin{table}[H]
 	  \centering
