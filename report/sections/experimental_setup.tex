@@ -1,9 +1,9 @@
 \subsection{Coil assembly and primary circuit}
-Two coils, one of  $ \sim 500$ turns and one of $ \sim 400$ turns, were co-axially wound into a solenoid.
-The coil with 500 turns was designated the primary coil and connected in series with 
-a $2 \pm 0.1 \,\Omega$ resistor ($R_p$) to reduce the current. This allowed us to calculate the 
-current through the coil and thus the magnetic field strength through the coil 
-($I = \frac{V}{R_p} \rightarrow H = \frac{nI}{L}$, see Equation~$\eqref{eq:H-field}$) and ensured the coil did not overheat. 
+Two coils, one of  $ \sim 500$ turns and one of $ \sim 400$ turns, were co-axially wound into a solenoid (Length $L = 4.2 \pm 0.1$ cm).
+The coil with 500 turns was designated as the primary coil and connected in series with 
+a $2 \pm 0.1 \,\Omega$ resistor ($R_p$) to reduce the current. From this, the current through the coil and thus
+ the magnetic field strength through the coil 
+($I = \frac{V}{R_p} \rightarrow H = \frac{nI}{L}$, see Equation~$\eqref{eq:H-field}$) were calculated. 
 This part of the circuit was completed by connecting it to a signal generator set to 
 produce an AC voltage of $5 \pm 0.01 V_{pp}$  (Peak to Peak) at $50 \pm 0.1 \, \text{Hz}$ (to emulate mains electricity supply).
 $\\$
@@ -44,7 +44,7 @@ $\\$
 $\\$
 Therefore, picking 100 nF was suitable.
 $\\$
-Next, $R_i$ needed to be chosen. To make the calculations easier, an $R_i$ value that would give a gain of 1 was selected.
+To make the calculations easier, an $R_i$ value that would give a gain of 1 was selected.
 \begin{gather}
     \text{gain} = \abs{\frac{V_{out}}{V_{in}}} = \frac{1}{\omega R_i C_1} \\
     1 = \frac{1}{\omega R_i C_1} \\
@@ -76,7 +76,7 @@ This corresponds to a $38\%$ deviation from the theoretical value and may be due
 The square wave is composed of sinusoidal waves of many frequencies and therefore contains odd harmonics 
 of the fundamental frequency of the integrator circuit (e.g. 3f = 150 Hz, 5f = 250 Hz, etc.).
 Combined with the op-amp not being ideal and having a limited bandwidth, these harmonics can result in a different gain than the theoretical value.
-This is treated as a systematic error in the experiment and was used as gain in the subsequent calculations.
+Whilst this was due to systematic errors in the experiment, measured gain was used as gain in the subsequent calculations.
 $\\$
 
 \FloatBarrier
@@ -94,7 +94,7 @@ This was done using a vernier caliper to measure the length and width of the cub
 and the diameter of the cylindrical mild steel sample.
 $\\$
 $\\$
-Then the experiment was run:
+Then the experiment was run,
 The signal generator was turned on to feed an AC current into the primary coil.
 After waiting until the circuit reached a steady state, the data points for 20 cycles were saved.
 This was done immediately to ensure the coil didn't heat up and change its resistance during the measurement.
@@ -109,9 +109,9 @@ The low time difference between the samples being removed from the water and bei
 changes during the measurement, but the actual temperature was not measured during the hysteresis and thus the temperatures should be taken as approximate.
 $\\$
 $\\$
-Voltages across the series 2 $\Omega$ resistor (Channel A) and integrator output (Channel B) were recorded using a PicoScope 
+Voltages across $R_p$ (Channel A) and integrator output (Channel B) were recorded using a PicoScope 
 at a sampling rate of 1.95 MHz (in spite of the AC current being used the PicoScope was set to DC. This was to avoid the possibility of some AC current being 
-filtered out by the PicoScope as it is seen as DC offset as a result of the low frequency being used). For each sample, 20 cycles at 50 Hz ($\sim$0.32 s) were 
+filtered out by the PicoScope as it is interpreted as DC offset due to the low frequency being used). For each sample, 20 cycles at 50 Hz ($\sim$0.32 s) were 
 recorded. 
 $\\$
 
@@ -119,12 +119,11 @@ $\\$
 
 \subsection{Data processing}
 $\\$
-The recorded voltage data was processed using a Python script.
-this sctipt performed the following tasks:
+The recorded voltage data was processed using a Python script. This script performed the following tasks:
 \begin{itemize}
     \item split the data into 20 loops
-    \item calculate $H$ and $B$ values for each loop using Equations~\eqref{eq:H-field} and~\eqref{eq:B-from-integrator}
-    \item plot the hysteresis loops
+    \item calculated $H$ and $B$ values for each loop using Equations~\eqref{eq:H-field} and~\eqref{eq:B-from-integrator}
+    \item plotted the hysteresis loops
     \item performed a polynomial fit to resolve the loops at the ends of the $H$ range
     \item calculated $\mu_r$ values using Equation~\eqref{eq:mu_r}
     \item calculated power loss per unit volume using Equation~\eqref{eq:power_loss}

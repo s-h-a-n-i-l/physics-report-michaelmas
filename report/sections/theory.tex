@@ -1,14 +1,14 @@
 \subsection{What Is Hysteresis}
 Hysteresis is the phenomenon where the value of a physical property lags behind changes in the effect causing it.
 In magnetic materials, this is observed as a lag between the magnetisation of the material and the external magnetic
-field applied to it. This results in a hysteresis loop when plotting magnetic flux density \(B\) against magnetic field
-strength \(H\).
+field applied to it. This results in a hysteresis loop when plotting magnetic flux density ($B$) against magnetic field
+strength ($H$).
 There are three key points on the hysteresis loop; these are shown in Figure \ref{fig:labelled_hysteresis_loop}.
 \begin{itemize}
     \item \textbf{(A) Saturation magnetisation} ($B_{sat}$): This is the maximum magnetic flux density that the material can achieve.
-    Beyond this point, increasing the external magnetic field \(H\) does not significantly increase \(B\) as the magnetic domains are fully aligned and thus $\mu_r \rightarrow 1$ .
-    \item \textbf{(B) Remanent magnetisation} ($B_r$): This is the magnetic flux density that remains in the material when the external magnetic field \(H\) is reduced to zero.
-    \item \textbf{(C) Coercive field} ($H_c$): This is the magnitude of the reverse magnetic field that must be applied to reduce the magnetic flux density \(B\) to zero after the material has been magnetised to saturation.
+    Beyond this point, increasing the external magnetic field does not significantly increase $B$ as the magnetic domains are fully aligned and thus $\mu_r \rightarrow 1$ .
+    \item \textbf{(B) Remanent magnetisation} ($B_r$): This is the magnetic flux density that remains in the material when the external magnetic field is reduced to zero.
+    \item \textbf{(C) Coercive field} ($H_c$): This is the magnitude of the reverse magnetic field that must be applied to reduce the magnetic flux density to zero after the material has been magnetised to saturation.
 \end{itemize}
 $\\$
 \begin{figure}[H]
@@ -55,8 +55,8 @@ $\\$
 $\chi$ is the volume magnetic susceptibility.
 $\\$
 $\\$
-By using different materials within the centre of the solenoid, different values of $\mu$ are used, resulting in different hysteresis loops being formed.
-These $B$ and $H$ values cannot be measured directly, but if you arrange two solenoids as in ($\textbf{\Cref{fig:transformer_coils}}$):
+By using different materials within the centre of the solenoid, different hysteresis loops formed as a result of the different values of $\mu_r$.
+These $B$ and $H$ values cannot be measured directly, but if you arrange two solenoids as in $\textbf{\Cref{fig:transformer_coils}}$:
 
 \begin{figure}[H]
     \centering
@@ -66,46 +66,40 @@ These $B$ and $H$ values cannot be measured directly, but if you arrange two sol
 \end{figure}
 \FloatBarrier
 $\\$
-The variance of the magnetic field in one (the primary solenoid) results in an induced ${emf}$ in the other coil. This is given by Faraday's law of induction:
+The variance of the magnetic field in the primary solenoid results in an induced ${emf}$ in the secondary coil. This is given by Faraday's law of induction:
 
 \begin{equation}
     \mathcal{E} = - N_s \frac{d\Phi}{dt}
 \end{equation}
 \noindent
-Where:
+Where:$\\$
+$\mathcal{E}$ is the ${emf}$ induced in the secondary coil$\\$
+$N_s$ is the number of turns of coil$\\$
+$\frac{d\Phi}{dt}$ is the rate of change of flux$\\$
 \noindent
-$\mathcal{E}$ is the ${emf}$ induced in the secondary coil
-$N_s$ is the number of turns of coil
-And $\frac{d\Phi}{dt}$ is the rate of change of flux
-$\\$
-\noindent
-$\Phi$, the magnetic flux, is given by:
+$\Phi$ is the magnetic flux, is given by:
 
 \begin{equation}
     \Phi = B A_s
 \end{equation} 
 \noindent
-Where $B$ is the magnetic flux density inside the coil and is provided by the primary coil and $A_s$ is the area 
-of the secondary coil.
+Where $B$ is the magnetic flux density inside the coil and is provided by the primary coil and $A_s$ is the cross-sectional area of the material in the core.
 $\\$
 \noindent
-$A_s$ is the cross-sectional area of the material in the core.
-$\\$
-$\\$
 This secondary coil then allows us to calculate $B$ by integrating $\mathcal{E} = - N_s \frac{d\Phi}{dt}$ to give:
 
 \begin{equation}
     B = - \frac{1}{N_s A_s} \int \mathcal{E} dt
 \end{equation}
 $\\$
-Then, through the use of an integrator circuit we can let $V_{out} = -\frac {1}{R_i C} \int \mathcal{E} dt$ and then calculate $B$ using: 
+Then, through the use of an integrator circuit, $V_{out} = -\frac {1}{R_i C} \int \mathcal{E} dt$ (where $R_i$ is the integrator’s input resistor, $C$ the feedback capacitor and $V_{out}$ the integrator output voltage), $B$ is calculated using: 
 \begin{equation}
     B = - \frac {R_iC}{N_s A_s} V_{out}
     \label{eq:B-from-integrator}
 \end{equation}
 $\\$
 \noindent
-Our loop allows us to calculate the energy loss per unit volume per cycle from the area under the \(B(H)\) curve.
+Our loop allows us to calculate the power loss per unit volume per cycle from the area under the \(B-H\) curve.
 
 \begin{equation}
   \frac{P_{\text{loss}}}{V}
